@@ -9,6 +9,7 @@ import java.util.TimerTask;
  * Created by ZingBug on 2017/10/11.
  */
 public class VideoInput {
+    public static boolean single=false;
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
 
     private FFmpegFrameGrabber capture;//视频打开引擎
@@ -29,6 +30,11 @@ public class VideoInput {
 
     public VideoInput(String VideoPath)
     {
+        if(VideoPath.contains("jpg"))
+        {
+            //单张照片
+            single=true;
+        }
         capture=new FFmpegFrameGrabber(VideoPath);
         try
         {
@@ -44,7 +50,8 @@ public class VideoInput {
         timer=new Timer();
         canvas=new CanvasFrame("左眼显示");
         canvas.setCanvasSize(400,300);
-        timer.schedule(new readFrame(),50,10);
+        timer.schedule(new readFrame(),50,10);//执行多次
+        //timer.schedule(new readFrame(),50);//执行一次
 
     }
     class readFrame extends TimerTask

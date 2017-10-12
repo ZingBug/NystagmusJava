@@ -1,7 +1,8 @@
-import org.bytedeco.javacpp.Loader;
-import org.bytedeco.javacpp.opencv_core;
+import org.bytedeco.javacpp.*;
 import org.bytedeco.javacpp.opencv_core.*;
-import org.bytedeco.javacpp.opencv_imgproc;
+import org.bytedeco.javacv.CanvasFrame;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.OpenCVFrameConverter;
 
 import java.util.Vector;
 
@@ -9,6 +10,7 @@ import java.util.Vector;
  * Created by ZingBug on 2017/10/11.
  */
 public class ImgProcess {
+    private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
     private Size size=new Size(9,9);
 
     private Mat Leye;
@@ -60,9 +62,37 @@ public class ImgProcess {
         Mat grayimg=new Mat(grayimg0);
 
         opencv_imgproc.cvtColor(grayimg,grayimg,opencv_imgproc.COLOR_RGB2GRAY);//灰度化处理
-        //opencv_imgproc.medianBlur(grayimg,grayimg,9);//中值滤波
+        opencv_imgproc.medianBlur(grayimg,grayimg,5);//中值滤波
         //opencv_imgproc.blur(grayimg,grayimg,size);//均值滤波
-        Mat grayout=Binary(grayimg,50);
+        /*重构开运算，去除光斑*/
+        Mat element_open=opencv_imgproc.getStructuringElement(opencv_imgproc.MORPH_ELLIPSE,new Size(9,9));//形态学运算的内核
+        opencv_imgproc.morphologyEx(grayimg,grayimg,opencv_imgproc.MORPH_OPEN,element_open);//开运算
+        /*顶帽+低帽变换，将源图像加上低帽变换再减去顶帽变换，用以增强对比度*/
+        Mat element_hot=opencv_imgproc.getStructuringElement(opencv_imgproc.MORPH_ELLIPSE,new Size(13,13));
+        Mat topHat=new Mat();
+        Mat bottomHat=new Mat();
+        Mat tempHat=new Mat();
+        opencv_imgproc.morphologyEx(grayimg,topHat,opencv_imgproc.MORPH_TOPHAT,element_hot);//黑帽运算
+        opencv_imgproc.morphologyEx(grayimg,bottomHat,opencv_imgproc.MORPH_BLACKHAT,element_hot);//黑帽运算
+        opencv_core.addWeighted(grayimg,1,bottomHat,1,0.0,tempHat);//tempHat=grayimg+bottomHat
+        opencv_core.addWeighted(tempHat,1,topHat,-1,0,grayimg);//grayimg=tempHat-topHat=grayimg+bottomHat-topHat
+
+        if(VideoInput.single)
+        {
+            Frame frame=matConverter.convert(grayimg);
+            CanvasFrame canvasFrame=new CanvasFrame("灰度图片");
+            canvasFrame.setCanvasSize(400,300);
+            canvasFrame.showImage(frame);
+        }
+        Mat grayout=Binary(grayimg,30);//直接给定阈值二值法
+        //Mat grayout=EntropySeg(grayimg);//最大阈值法，自适应
+        if(VideoInput.single)
+        {
+            Frame frame=matConverter.convert(grayout);
+            CanvasFrame canvasFrame=new CanvasFrame("二值化图片");
+            canvasFrame.setCanvasSize(400,300);
+            canvasFrame.showImage(frame);
+        }
         return grayout;
     }
     /**
@@ -76,6 +106,77 @@ public class ImgProcess {
         Mat binaryout=new Mat();
         opencv_imgproc.threshold(binaryimg,binaryout,value,255,opencv_imgproc.THRESH_BINARY);
         return binaryout;
+    }
+    /**
+     * 最大熵分割算法
+     * @param src 待分割的原图像
+     * @return 分割后图像
+     */
+    private Mat EntropySeg(Mat src)
+    {
+        int[] tbHist=new int[256];//每个像素值个数
+        int index=0;//最大熵对应的灰度
+        double Property=0.0;//像素所占概率
+        double maxEntropy=-1.0;//最大熵
+        double frontEntropy=0.0;//前景熵
+        double backEntropy=0.0;//背景熵
+        //纳入计算的总像素数
+        int TotalPixel=0;
+        int nCol=src.cols()*src.channels();//每行的像素个数
+        for(int i=0;i<src.rows();i++)
+        {
+            BytePointer pData=src.ptr(i);
+            for(int j=0;j<nCol;++j)
+            {
+                ++TotalPixel;
+                int value=pData.get(j);
+                if(value<0)
+                {
+                    value+=256;
+                }
+                tbHist[value]+=1;
+            }
+        }
+        for(int i=0;i<256;i++)
+        {
+            //计算背景像素数
+            double backTotal=0;
+            for(int j=0;j<i;j++)
+            {
+                backTotal+=tbHist[j];
+            }
+            //背景熵
+            for(int j=0;j<i;j++)
+            {
+                if(tbHist[j]!=0)
+                {
+                    Property=tbHist[j]/backTotal;
+                    backEntropy+=Property*Math.log1p(Property);
+                }
+            }
+            //前景熵
+            for(int k=i;k<256;k++)
+            {
+                if(tbHist[k]!=0)
+                {
+                    Property=tbHist[k]/(TotalPixel-backTotal);
+                    frontEntropy+=Property*Math.log1p(Property);
+                }
+            }
+            //得到最大熵
+            if(frontEntropy+backEntropy>maxEntropy)
+            {
+                maxEntropy=frontEntropy+backEntropy;
+                index=i;
+            }
+            //清空本次计算熵值
+            frontEntropy=0.0;
+            backEntropy=0.0;
+        }
+        Mat dst=new Mat();
+        index+=3;
+        opencv_imgproc.threshold(src,dst,index,255,opencv_imgproc.THRESH_BINARY);
+        return dst.clone();
     }
     /**
      * 二乘法拟合圆
@@ -180,7 +281,6 @@ public class ImgProcess {
         opencv_imgproc.cvLine(img,above,below,color,thickness,8,0);
         return;
     }
-
     /**
      * 图像识别
      */
