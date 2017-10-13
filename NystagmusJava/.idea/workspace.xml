@@ -10,26 +10,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="opencv_imgproc.class" pinned="false" current-in-tab="true">
-              <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="589">
-                    <caret line="2090" column="117" lean-forward="false" selection-start-line="2090" selection-start-column="114" selection-end-line="2090" selection-end-column="117" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -47,8 +27,8 @@
       <file leaf-file-name="VideoInput.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="989">
-              <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            <state relative-caret-position="292">
+              <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,23 +39,32 @@
       <file leaf-file-name="ImgProcess.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="296" column="34" lean-forward="false" selection-start-line="296" selection-start-column="34" selection-end-line="296" selection-end-column="34" />
+            <state relative-caret-position="393">
+              <caret line="353" column="38" lean-forward="true" selection-start-line="353" selection-start-column="38" selection-end-line="353" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#Binary#0;class#ImgProcess#0" expanded="false" />
+                <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#PlotC#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
-                <element signature="e#9961#9968#0" expanded="true" />
+                <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="opencv_imgproc.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18423">
+              <caret line="862" column="32" lean-forward="false" selection-start-line="862" selection-start-column="32" selection-end-line="862" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,7 +82,7 @@
       <file leaf-file-name="opencv_core.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_core.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="186668">
               <caret line="8244" column="33" lean-forward="false" selection-start-line="8244" selection-start-column="22" selection-end-line="8244" selection-end-column="33" />
               <folding />
             </state>
@@ -147,9 +136,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="18" />
-    <option name="y" value="-17" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="827" />
   </component>
@@ -184,6 +173,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,16 +192,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Algorithms/Algorithms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -341,15 +330,16 @@
       <workItem from="1507690168934" duration="22000" />
       <workItem from="1507690356945" duration="11373000" />
       <workItem from="1507719591712" duration="6506000" />
-      <workItem from="1507772567100" duration="13873000" />
+      <workItem from="1507772567100" duration="18464000" />
+      <workItem from="1507859516726" duration="4520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31774000" />
+    <option name="totallyTimeSpent" value="40885000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -358,17 +348,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22751896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2553305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -390,7 +380,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -403,6 +393,79 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="58" column="65" lean-forward="false" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="989">
+          <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18423">
+          <caret line="862" column="32" lean-forward="false" selection-start-line="862" selection-start-column="32" selection-end-line="862" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/javacpp.jar!/org/bytedeco/javacpp/IntPointer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_core.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189612">
+          <caret line="8244" column="33" lean-forward="false" selection-start-line="8244" selection-start-column="22" selection-end-line="8244" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Box.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3197">
+          <caret line="219" column="7" lean-forward="true" selection-start-line="219" selection-start-column="7" selection-end-line="219" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
@@ -438,17 +501,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#Binary#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#PlotC#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
-            <element signature="e#9961#9968#0" expanded="true" />
+            <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -488,17 +550,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#Binary#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#PlotC#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
-            <element signature="e#9961#9968#0" expanded="true" />
+            <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -507,6 +568,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_core.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186668">
+          <caret line="8244" column="33" lean-forward="false" selection-start-line="8244" selection-start-column="22" selection-end-line="8244" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/javacpp.jar!/org/bytedeco/javacpp/IntPointer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18423">
+          <caret line="862" column="32" lean-forward="false" selection-start-line="862" selection-start-column="32" selection-end-line="862" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -523,56 +608,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="989">
-          <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+        <state relative-caret-position="292">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_core.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="8244" column="33" lean-forward="false" selection-start-line="8244" selection-start-column="22" selection-end-line="8244" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/javacpp.jar!/org/bytedeco/javacpp/IntPointer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="2090" column="117" lean-forward="false" selection-start-line="2090" selection-start-column="114" selection-end-line="2090" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="296" column="34" lean-forward="false" selection-start-line="296" selection-start-column="34" selection-end-line="296" selection-end-column="34" />
+        <state relative-caret-position="393">
+          <caret line="353" column="38" lean-forward="true" selection-start-line="353" selection-start-column="38" selection-end-line="353" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#Binary#0;class#ImgProcess#0" expanded="false" />
+            <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#PlotC#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
-            <element signature="e#9961#9968#0" expanded="true" />
+            <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>

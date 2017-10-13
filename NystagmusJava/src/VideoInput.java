@@ -35,6 +35,10 @@ public class VideoInput {
             //单张照片
             single=true;
         }
+        else
+        {
+            single=false;
+        }
         capture=new FFmpegFrameGrabber(VideoPath);
         try
         {
