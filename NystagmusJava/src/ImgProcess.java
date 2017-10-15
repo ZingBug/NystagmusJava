@@ -423,26 +423,22 @@ public class ImgProcess {
         CvSeq cvtempLcontour=new CvSeq(null);//临时轮廓
         CvSeq cvLcontourKeep=new CvSeq(null);//需要绘制的轮廓
 
-        BufferedImage bufferedImageSrc=frameConverter.convert(matConverter.convert(Leye));
-        try
-        {
-            ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();//在命令行打印异常信息在程序中出错的位置及原因
-        }
 
         Lgrayimg=GrayDetect(Leye);
 
-        BufferedImage bufferedImageDst=frameConverter.convert(matConverter.convert(Lgrayimg));
-        try
+        if(VideoInput.IsSaveImage&&VideoInput.IsSaveImageSingle)
         {
-            ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();//在命令行打印异常信息在程序中出错的位置及原因
+            BufferedImage bufferedImageSrc=frameConverter.convert(matConverter.convert(Leye));
+            BufferedImage bufferedImageDst=frameConverter.convert(matConverter.convert(Lgrayimg));
+            try
+            {
+                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();//在命令行打印异常信息在程序中出错的位置及原因
+            }
         }
 
         Ledgeimg=EdgeDetect(Lgrayimg);

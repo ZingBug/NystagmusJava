@@ -2,6 +2,7 @@ import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacv.*;
 import org.bytedeco.javacpp.opencv_core.*;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,9 +13,11 @@ import java.util.TimerTask;
 public class VideoInput {
     public static boolean single=false;
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
-    public static String dstSaveImageFile="F:\\dst";
-    public static String srcSaveImageFile="F:\\src";
+    public static String dstSaveImageFile="C:\\dst";
+    public static String srcSaveImageFile="C:\\src";
     public static int frameNum=0;
+    public static boolean IsSaveImage=true;//是否选择保存图像
+    public static boolean IsSaveImageSingle=false;//是否保存当前文件图像
 
     private FFmpegFrameGrabber capture;//视频打开引擎
     private Timer timer;//定时器
@@ -37,13 +40,33 @@ public class VideoInput {
 
     public VideoInput(String VideoPath)
     {
-        File src=new File(srcSaveImageFile);
-        File dst=new File(dstSaveImageFile);
-        if(!creatFile(src)||!creatFile(dst))
+        if(IsSaveImage)
         {
-            System.out.println("照片保存文件夹创建失败");
-            return;
+            //如果存在文件夹
+            JFileChooser chooser=new JFileChooser();
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            chooser.setDialogTitle("选择照片保存路径");
+            int result=chooser.showOpenDialog(null);
+            if(result==JFileChooser.APPROVE_OPTION)
+            {
+                String filePath=chooser.getSelectedFile().getPath();
+                srcSaveImageFile=filePath+"\\src";
+                dstSaveImageFile=filePath+"\\dst";
+                File src=new File(srcSaveImageFile);
+                File dst=new File(dstSaveImageFile);
+                if(!creatFile(src)||!creatFile(dst))
+                {
+                    System.out.println("照片保存文件夹创建失败");
+                    return;
+                }
+                IsSaveImageSingle=true;
+            }
+            else
+            {
+                IsSaveImageSingle=false;
+            }
         }
+
         if(VideoPath.contains("jpg"))
         {
             //单张照片
