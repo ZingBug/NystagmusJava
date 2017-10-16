@@ -18,6 +18,7 @@ public class VideoInput {
     public static int frameNum=0;
     public static boolean IsSaveImage=true;//是否选择保存图像
     public static boolean IsSaveImageSingle=false;//是否保存当前文件图像
+    public static String currentVideoName="";
 
     private FFmpegFrameGrabber capture;//视频打开引擎
     private Timer timer;//定时器
@@ -76,10 +77,15 @@ public class VideoInput {
         {
             single=false;
         }
+        //F:\GitHub\NystagmusJava\NystagmusJava\眼线遮挡.avi
+        File file=new File(VideoPath);
+        String tempName=file.getName();
+        currentVideoName=tempName.substring(0,tempName.lastIndexOf("."));
         capture=new FFmpegFrameGrabber(VideoPath);
         try
         {
             capture.start();
+
         }
         catch (FrameGrabber.Exception e1)
         {

@@ -426,14 +426,14 @@ public class ImgProcess {
 
         Lgrayimg=GrayDetect(Leye);
 
-        if(VideoInput.IsSaveImage&&VideoInput.IsSaveImageSingle)
+        if(VideoInput.IsSaveImage&&VideoInput.IsSaveImageSingle&&Main.frameHash.contains(VideoInput.frameNum))
         {
             BufferedImage bufferedImageSrc=frameConverter.convert(matConverter.convert(Leye));
             BufferedImage bufferedImageDst=frameConverter.convert(matConverter.convert(Lgrayimg));
             try
             {
-                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
-                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.currentVideoName+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.currentVideoName+VideoInput.frameNum+".bmp"));
             }
             catch (IOException e)
             {
