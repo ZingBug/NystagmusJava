@@ -27,8 +27,8 @@
       <file leaf-file-name="VideoInput.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+            <state relative-caret-position="315">
+              <caret line="98" column="29" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,14 +39,13 @@
       <file leaf-file-name="ImgProcess.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1129">
-              <caret line="490" column="9" lean-forward="true" selection-start-line="490" selection-start-column="9" selection-end-line="490" selection-end-column="9" />
+            <state relative-caret-position="213">
+              <caret line="100" column="35" lean-forward="false" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -60,6 +59,7 @@
                 <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
                 <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
                 <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+                <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="Box.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Box.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+            <state relative-caret-position="184">
+              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -99,8 +99,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/Box.java" />
         <option value="$PROJECT_DIR$/src/VideoInput.java" />
-        <option value="$PROJECT_DIR$/src/ImgProcess.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ImgProcess.java" />
       </list>
     </option>
   </component>
@@ -316,12 +316,12 @@
       <workItem from="1507948275058" duration="4146000" />
       <workItem from="1507964346656" duration="10445000" />
       <workItem from="1508032429552" duration="3665000" />
-      <workItem from="1508119544557" duration="5888000" />
+      <workItem from="1508119544557" duration="14019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76736000" />
+    <option name="totallyTimeSpent" value="84867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -365,7 +365,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="69" />
+      <option name="time" value="87" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -377,6 +377,8 @@
         <watch expression="(box.getR()+preBox.getR()/1.5)" language="JAVA" />
         <watch expression="courseFile" language="JAVA" />
         <watch expression="capture.getVideoMetadata(&quot;name&quot;)" language="JAVA" />
+        <watch expression="rect.y()" language="JAVA" />
+        <watch expression="rect.x()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -400,7 +402,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -414,6 +415,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -455,7 +457,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -469,6 +470,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -510,7 +512,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -524,6 +525,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -604,7 +606,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -618,6 +619,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,7 +682,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -694,6 +695,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -735,7 +737,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -749,6 +750,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,7 +792,6 @@
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -804,6 +805,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -826,14 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="614">
           <caret line="3390" column="30" lean-forward="false" selection-start-line="3390" selection-start-column="30" selection-end-line="3390" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,10 +892,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Box.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+        <state relative-caret-position="315">
+          <caret line="98" column="29" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -910,14 +912,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1129">
-          <caret line="490" column="9" lean-forward="true" selection-start-line="490" selection-start-column="9" selection-end-line="490" selection-end-column="9" />
+        <state relative-caret-position="213">
+          <caret line="100" column="35" lean-forward="false" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-            <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
@@ -931,6 +932,7 @@
             <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
+            <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -73,8 +73,6 @@ public class ImgProcess {
         opencv_imgproc.medianBlur(grayimg,grayimg,9);//中值滤波
         //opencv_imgproc.blur(grayimg,grayimg,size);//均值滤波
 
-
-
         /*重构开运算，去除光斑*/
         Mat element_open=opencv_imgproc.getStructuringElement(opencv_imgproc.MORPH_ELLIPSE,new Size(15,15));//形态学开运算的内核
         opencv_imgproc.morphologyEx(grayimg,grayimg,opencv_imgproc.MORPH_OPEN,element_open);//开运算
@@ -100,8 +98,8 @@ public class ImgProcess {
             canvasFrame.setCanvasSize(160,120);
             canvasFrame.showImage(frame);
         }
-        Mat grayout=Binary(grayimg,30);//直接给定阈值二值法
-        Mat grayout1=RemoveSmallRegion(grayout,180);
+        Mat grayout=Binary(grayimg,35);//直接给定阈值二值法
+        Mat grayout1=RemoveSmallRegion(grayout);
         //opencv_imgproc.morphologyEx(grayout,grayout,opencv_imgproc.MORPH_OPEN,element_open);//开运算
         //Mat grayout=EntropySeg(grayimg);//最大阈值法，自适应
         if(VideoInput.single)
@@ -199,7 +197,7 @@ public class ImgProcess {
         opencv_imgproc.threshold(src,dst,index,255,opencv_imgproc.THRESH_BINARY);
         return dst.clone();
     }
-    private Mat RemoveSmallRegion(Mat src,double limitArea)
+    private Mat RemoveSmallRegion(Mat src)
     {
         Mat dst=new Mat();
         src.copyTo(dst);
@@ -207,25 +205,42 @@ public class ImgProcess {
 
         CvMemStorage storage=CvMemStorage.create();
         CvSeq cvContour=new CvSeq(null);
+
         CvRect rect;
         double tempArea;
         opencv_imgproc.cvFindContours(srcImage,storage,cvContour,Loader.sizeof(CvContour.class),opencv_imgproc.CV_RETR_CCOMP,opencv_imgproc.CV_CHAIN_APPROX_NONE);
         dst=new Mat();
         src.copyTo(dst);
         srcImage=new IplImage(dst);
+        double maxArea=0;
+        CvSeq tempContour=new CvSeq(cvContour);
+        while (tempContour!=null&&!tempContour.isNull())
+        {
+            tempArea=opencv_imgproc.cvContourArea(tempContour);
+            if(tempArea>maxArea)
+            {
+                maxArea=tempArea;
+            }
+            tempContour=tempContour.h_next();
+        }
+        int nCol=src.cols();
+        int nRow=src.rows();
         while (cvContour!=null&&!cvContour.isNull())
         {
-            tempArea=opencv_imgproc.cvContourArea(cvContour);
-
-            if(tempArea<limitArea)
+            rect=opencv_imgproc.cvBoundingRect(cvContour);
+            if(rect.x()==1||rect.x()==nCol||rect.y()==1||rect.y()==nRow)
             {
-                rect=opencv_imgproc.cvBoundingRect(cvContour);
+                CvPoint point=new CvPoint(rect.x()+rect.width()/2,rect.y()+rect.height()/2);
+                opencv_imgproc.cvFloodFill(srcImage,point,cvblack);
+            }
+            tempArea=opencv_imgproc.cvContourArea(cvContour);
+            if(tempArea<maxArea)
+            {
                 CvPoint point=new CvPoint(rect.x()+rect.width()/2,rect.y()+rect.height()/2);
                 opencv_imgproc.cvFloodFill(srcImage,point,cvblack);
             }
             cvContour=cvContour.h_next();
         }
-
         return dst;
     }
     /**
