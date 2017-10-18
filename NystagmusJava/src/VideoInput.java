@@ -1,3 +1,8 @@
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacv.*;
 import org.bytedeco.javacpp.opencv_core.*;
@@ -18,7 +23,7 @@ public class VideoInput {
     public static int frameNum=0;
     public static boolean IsSaveImage=true;//是否选择保存图像
     public static boolean IsSaveImageSingle=false;//是否保存当前文件图像
-    public static String currentVideoName="";
+    public static String currentVideoNamePinYin="";
 
     private FFmpegFrameGrabber capture;//视频打开引擎
     private Timer timer;//定时器
@@ -80,7 +85,8 @@ public class VideoInput {
         //F:\GitHub\NystagmusJava\NystagmusJava\眼线遮挡.avi
         File file=new File(VideoPath);
         String tempName=file.getName();
-        currentVideoName=tempName.substring(0,tempName.lastIndexOf("."));
+        String currentVideoName=tempName.substring(0,tempName.lastIndexOf("."));
+        currentVideoNamePinYin=ToPinyin(currentVideoName);
         capture=new FFmpegFrameGrabber(VideoPath);
         try
         {
@@ -123,6 +129,30 @@ public class VideoInput {
         {
             return file.mkdir();
         }
+    }
+    /**
+     * 汉字转为拼音
+     * @param chinese
+     * @return
+     */
+    public static String ToPinyin(String chinese){
+        String pinyinStr = "";
+        char[] newChar = chinese.toCharArray();
+        HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
+        defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+        for (int i = 0; i < newChar.length; i++) {
+            if (newChar[i] > 128) {
+                try {
+                    pinyinStr += PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)[0];
+                } catch (BadHanyuPinyinOutputFormatCombination e) {
+                    e.printStackTrace();
+                }
+            }else{
+                pinyinStr += newChar[i];
+            }
+        }
+        return pinyinStr;
     }
     class readFrame extends TimerTask
     {

@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by ZingBug on 2017/10/11.
@@ -15,6 +17,7 @@ public class Main {
     private static final String name="F:\\GitHub\\NystagmusJava\\NystagmusJava\\1.jpg";
     private static final String textName="config.txt";
     public static String fileName="";
+    public static Lock lock=new ReentrantLock();
     public static void main(String[] args)
     {
         File courseFile=new File("");

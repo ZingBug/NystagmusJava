@@ -99,9 +99,9 @@ public class ImgProcess {
             canvasFrame.showImage(frame);
         }
         Mat grayout=Binary(grayimg,35);//直接给定阈值二值法
+        //Mat grayout=EntropySeg(grayimg);//最大阈值法，自适应
         Mat grayout1=RemoveSmallRegion(grayout);
         //opencv_imgproc.morphologyEx(grayout,grayout,opencv_imgproc.MORPH_OPEN,element_open);//开运算
-        //Mat grayout=EntropySeg(grayimg);//最大阈值法，自适应
         if(VideoInput.single)
         {
             Frame frame=matConverter.convert(grayout1);
@@ -111,7 +111,6 @@ public class ImgProcess {
         }
 
         //GravityCenter(grayout);
-
         return grayout1;
     }
     /**
@@ -193,8 +192,8 @@ public class ImgProcess {
             backEntropy=0.0;
         }
         Mat dst=new Mat();
-        index+=3;
-        opencv_imgproc.threshold(src,dst,index,255,opencv_imgproc.THRESH_BINARY);
+        //index+=3;
+        opencv_imgproc.threshold(src,dst,index,255,opencv_imgproc.THRESH_BINARY_INV);
         return dst.clone();
     }
     private Mat RemoveSmallRegion(Mat src)
@@ -228,7 +227,7 @@ public class ImgProcess {
         while (cvContour!=null&&!cvContour.isNull())
         {
             rect=opencv_imgproc.cvBoundingRect(cvContour);
-            if(rect.x()==1||rect.x()==nCol||rect.y()==1||rect.y()==nRow)
+            if(rect.x()==1||rect.x()==nCol)
             {
                 CvPoint point=new CvPoint(rect.x()+rect.width()/2,rect.y()+rect.height()/2);
                 opencv_imgproc.cvFloodFill(srcImage,point,cvblack);
@@ -399,8 +398,8 @@ public class ImgProcess {
             CvPoint center=new CvPoint((int)Math.round(circles.get(i).getX()),(int)Math.round(circles.get(i).getY()));
             int radius=(int)circles.get(i).getR();
             //opencv_imgproc.cvCircle(midImage,center,1,cvblue,-1,8,0);//画圆心
-            opencv_imgproc.cvCircle(midImage,center,radius,cvred,1,8,0);//画圆轮廓
-            drawCross(midImage,center,cvwhite,1);//绘制十字光标
+            //opencv_imgproc.cvCircle(midImage,center,radius,cvred,1,8,0);//画圆轮廓
+            //drawCross(midImage,center,cvwhite,1);//绘制十字光标
         }
     }
     /**
@@ -447,8 +446,8 @@ public class ImgProcess {
             BufferedImage bufferedImageDst=frameConverter.convert(matConverter.convert(Lgrayimg));
             try
             {
-                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.currentVideoName+VideoInput.frameNum+".bmp"));
-                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.currentVideoName+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.currentVideoNamePinYin+"-"+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.currentVideoNamePinYin+"-"+VideoInput.frameNum+".bmp"));
             }
             catch (IOException e)
             {
