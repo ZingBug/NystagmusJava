@@ -6,16 +6,21 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacv.*;
 import org.bytedeco.javacpp.opencv_core.*;
+import org.bytedeco.javacv.Frame;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.function.Consumer;
 
 /**
  * Created by ZingBug on 2017/10/11.
  */
-public class VideoInput {
+public class VideoInput implements Consumer<WaveChart> {
     public static boolean single=false;
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
     public static String dstSaveImageFile="C:\\dst";
@@ -40,6 +45,12 @@ public class VideoInput {
 
     /*与上一帧比较*/
     private Box preBox;
+    private Box LeyeCenter;
+    private boolean IsLeyeCenter;
+
+    /*波形图*/
+    private WaveChart waveChart;
+    private PointFilter filterX;
 
     /*显示窗口*/
     private CanvasFrame canvas;
@@ -81,12 +92,34 @@ public class VideoInput {
         else
         {
             single=false;
+            filterX=new PointFilter();
+            //波形图
+            /*
+            JFrame frame=new JFrame("Test Chart");
+            rtcp=new WaveChart("X轴坐标","眼震波形","坐标");
+            frame.getContentPane().add(rtcp,new BorderLayout().CENTER);
+            frame.pack();
+            frame.setVisible(true);
+            (new Thread(rtcp)).start();
+            frame.addWindowListener(new WindowAdapter()
+            {
+                public void windowClosing(WindowEvent windowevent)
+                {
+                    System.exit(0);
+                }
+
+            });
+            */
         }
         //F:\GitHub\NystagmusJava\NystagmusJava\眼线遮挡.avi
         File file=new File(VideoPath);
         String tempName=file.getName();
         String currentVideoName=tempName.substring(0,tempName.lastIndexOf("."));
         currentVideoNamePinYin=ToPinyin(currentVideoName);
+
+        IsLeyeCenter=false;
+        LeyeCenter=new Box(0,0,0);
+
         capture=new FFmpegFrameGrabber(VideoPath);
         try
         {
@@ -104,9 +137,16 @@ public class VideoInput {
         canvas=new CanvasFrame("左眼显示");
         canvas.setCanvasSize(160,120);
         frameNum=0;
+
+
         timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
 
+    }
+    @Override
+    public void accept(WaveChart w)
+    {
+        waveChart=w;
     }
     /*判断文件夹是否存在，不存在则创建*/
     private boolean creatFile(File file)
@@ -189,6 +229,22 @@ public class VideoInput {
             process.Start(LeftFrameMat,1.8);
             //process.Start(AllEyeMat,1.8);
             process.ProcessSeparate();
+            for(Box box:process.Lcircles())
+            {
+                if(!IsLeyeCenter&&!single)
+                {
+                    IsLeyeCenter=true;
+                    LeyeCenter.setX(box.getX());
+                    LeyeCenter.setY(box.getY());
+                }
+                else if(!single)
+                {
+                    filterX.add(new Box(box.getX()-LeyeCenter.getX(),0,0));
+
+                    waveChart.add(frameNum,filterX.get().getX());
+                }
+            }
+
             Leye=process.OutLeye();
             for(Box box:process.Lcircles())
             {

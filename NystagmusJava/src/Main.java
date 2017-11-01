@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.Consumer;
 
 /**
  * Created by ZingBug on 2017/10/11.
@@ -17,7 +18,6 @@ public class Main {
     private static final String name="F:\\GitHub\\NystagmusJava\\NystagmusJava\\1.jpg";
     private static final String textName="config.txt";
     public static String fileName="";
-    public static Lock lock=new ReentrantLock();
     public static void main(String[] args)
     {
         File courseFile=new File("");
@@ -45,6 +45,11 @@ public class Main {
             @Override
             public void run() {
                 ImageViewerFrame frame=new ImageViewerFrame();
+                WaveChart waveChart=new WaveChart("X轴坐标","眼震波形","坐标");
+                frame.accept(waveChart);
+                frame.getContentPane().add(waveChart,new BorderLayout().CENTER);
+                (new Thread(waveChart)).start();
+                frame.pack();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setVisible(true);
             }
@@ -77,11 +82,12 @@ public class Main {
         return 0;
     }
 }
-class ImageViewerFrame extends JFrame{
+class ImageViewerFrame extends JFrame implements Consumer<WaveChart>{
     private JLabel label;
     private JFileChooser chooser;
     private static final int DEFAULT_WIDTH=300;
     private static final int DEFAULT_HEIGHT=400;
+    private WaveChart waveChart;
 
     public ImageViewerFrame()
     {
@@ -111,6 +117,7 @@ class ImageViewerFrame extends JFrame{
                     /*读取到的视频路径*/
                     String VideoPath=chooser.getSelectedFile().getPath();
                     VideoInput videoInput=new VideoInput(VideoPath);
+                    videoInput.accept(waveChart);
                 }
             }
         });
@@ -167,6 +174,11 @@ class ImageViewerFrame extends JFrame{
                 }
             }
         });
+    }
+    @Override
+    public void accept(WaveChart w)
+    {
+        waveChart=w;
     }
     public void setImage(String name)
     {

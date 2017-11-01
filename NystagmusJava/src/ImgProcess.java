@@ -398,8 +398,8 @@ public class ImgProcess {
             CvPoint center=new CvPoint((int)Math.round(circles.get(i).getX()),(int)Math.round(circles.get(i).getY()));
             int radius=(int)circles.get(i).getR();
             //opencv_imgproc.cvCircle(midImage,center,1,cvblue,-1,8,0);//画圆心
-            //opencv_imgproc.cvCircle(midImage,center,radius,cvred,1,8,0);//画圆轮廓
-            //drawCross(midImage,center,cvwhite,1);//绘制十字光标
+            opencv_imgproc.cvCircle(midImage,center,radius,cvred,1,8,0);//画圆轮廓
+            drawCross(midImage,center,cvwhite,1);//绘制十字光标
         }
     }
     /**
