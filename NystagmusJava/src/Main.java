@@ -45,7 +45,7 @@ public class Main {
             @Override
             public void run() {
                 ImageViewerFrame frame=new ImageViewerFrame();
-                WaveChart waveChart=new WaveChart("Y轴坐标","眼震波形","坐标");
+                WaveChart waveChart=new WaveChart("X轴坐标","眼震波形","坐标");
                 frame.accept(waveChart);
                 frame.getContentPane().add(waveChart,new BorderLayout().CENTER);
                 (new Thread(waveChart)).start();

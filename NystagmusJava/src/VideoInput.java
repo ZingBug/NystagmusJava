@@ -49,11 +49,16 @@ public class VideoInput implements Consumer<WaveChart> {
     private boolean IsLeyeCenter;
 
     /*波形图*/
-    private WaveChart waveChart;
-    private PointFilter filterX;
+    private WaveChart waveChart;//波形显示
+    private PointFilter filterX;//滤波
 
     /*显示窗口*/
-    private CanvasFrame canvas;
+    private CanvasFrame canvas;//显示图像窗口
+
+    /*眼震信号特征*/
+    private Calculate calculate;//计算
+    private final int TimerSecondNum=50;//每秒帧数
+    private int secondNum=0;//秒数
 
     public VideoInput(String VideoPath)
     {
@@ -92,7 +97,8 @@ public class VideoInput implements Consumer<WaveChart> {
         else
         {
             single=false;
-            filterX=new PointFilter();
+            filterX=new PointFilter();//滤波
+            calculate=new Calculate();//计算
         }
         //F:\GitHub\NystagmusJava\NystagmusJava\眼线遮挡.avi
         File file=new File(VideoPath);
@@ -128,6 +134,7 @@ public class VideoInput implements Consumer<WaveChart> {
             }
         });
         frameNum=0;
+        secondNum=0;
 
         timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
@@ -195,6 +202,13 @@ public class VideoInput implements Consumer<WaveChart> {
                 AllFrame=capture.grabFrame();
                 if(AllFrame==null)
                 {
+                    if(!single)
+                    {
+                        secondNum++;
+                        calculate.processLeyeX(secondNum);
+                        System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
+                        System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
+                    }
                     System.out.println("视频播放结束");
                     timer.cancel();
                     return;
@@ -204,6 +218,7 @@ public class VideoInput implements Consumer<WaveChart> {
             {
                 System.out.println("视频播放结束 "+e.toString());
                 timer.cancel();
+
                 return;
             }
             //图像切割
@@ -244,11 +259,19 @@ public class VideoInput implements Consumer<WaveChart> {
                 {
                     //做滤波处理
                     filterX.add(new Box(box.getX()-LeyeCenter.getX(),0,0));
-                    waveChart.add(frameNum,filterX.get().getX());
+                    double fx=filterX.get().getX();//滤波后的数据
+                    calculate.addLeyeX(fx);
+                    waveChart.add(frameNum,fx);
                     //不做滤波处理
                     //waveChart.add(frameNum,box.getX()-LeyeCenter.getX());
                 }
                 preBox=box;
+            }
+            if(!single&&frameNum%TimerSecondNum==0)
+            {
+                secondNum++;
+                calculate.processLeyeX(secondNum);
+                System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
             }
             //后续显示
             LeftFrame=matConverter.convert(Leye);//左眼
