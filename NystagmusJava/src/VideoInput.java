@@ -93,23 +93,6 @@ public class VideoInput implements Consumer<WaveChart> {
         {
             single=false;
             filterX=new PointFilter();
-            //波形图
-            /*
-            JFrame frame=new JFrame("Test Chart");
-            rtcp=new WaveChart("X轴坐标","眼震波形","坐标");
-            frame.getContentPane().add(rtcp,new BorderLayout().CENTER);
-            frame.pack();
-            frame.setVisible(true);
-            (new Thread(rtcp)).start();
-            frame.addWindowListener(new WindowAdapter()
-            {
-                public void windowClosing(WindowEvent windowevent)
-                {
-                    System.exit(0);
-                }
-
-            });
-            */
         }
         //F:\GitHub\NystagmusJava\NystagmusJava\眼线遮挡.avi
         File file=new File(VideoPath);
@@ -136,8 +119,15 @@ public class VideoInput implements Consumer<WaveChart> {
         timer=new Timer();
         canvas=new CanvasFrame("左眼显示");
         canvas.setCanvasSize(160,120);
+        //增加关闭监听
+        canvas.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                timer.cancel();
+            }
+        });
         frameNum=0;
-
 
         timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
@@ -229,21 +219,6 @@ public class VideoInput implements Consumer<WaveChart> {
             process.Start(LeftFrameMat,1.8);
             //process.Start(AllEyeMat,1.8);
             process.ProcessSeparate();
-            for(Box box:process.Lcircles())
-            {
-                if(!IsLeyeCenter&&!single)
-                {
-                    IsLeyeCenter=true;
-                    LeyeCenter.setX(box.getX());
-                    LeyeCenter.setY(box.getY());
-                }
-                else if(!single)
-                {
-                    filterX.add(new Box(box.getX()-LeyeCenter.getX(),0,0));
-
-                    waveChart.add(frameNum,filterX.get().getX());
-                }
-            }
 
             Leye=process.OutLeye();
             for(Box box:process.Lcircles())
@@ -258,6 +233,20 @@ public class VideoInput implements Consumer<WaveChart> {
                 {
                     //与上一帧做对比
                     return;
+                }
+                if(!IsLeyeCenter&&!single)
+                {
+                    IsLeyeCenter=true;
+                    LeyeCenter.setX(box.getX());
+                    LeyeCenter.setY(box.getY());
+                }
+                else if(!single)
+                {
+                    //做滤波处理
+                    filterX.add(new Box(box.getX()-LeyeCenter.getX(),0,0));
+                    waveChart.add(frameNum,filterX.get().getX());
+                    //不做滤波处理
+                    //waveChart.add(frameNum,box.getX()-LeyeCenter.getX());
                 }
                 preBox=box;
             }

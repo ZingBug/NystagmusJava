@@ -65,5 +65,9 @@ public class WaveChart extends ChartPanel implements Runnable {
     {
         XYSeries.add(a,b);
     }
+    public void clear()
+    {
+        XYSeries.clear();
+    }
 
 }

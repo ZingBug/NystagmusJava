@@ -45,7 +45,7 @@ public class Main {
             @Override
             public void run() {
                 ImageViewerFrame frame=new ImageViewerFrame();
-                WaveChart waveChart=new WaveChart("X轴坐标","眼震波形","坐标");
+                WaveChart waveChart=new WaveChart("Y轴坐标","眼震波形","坐标");
                 frame.accept(waveChart);
                 frame.getContentPane().add(waveChart,new BorderLayout().CENTER);
                 (new Thread(waveChart)).start();
@@ -117,6 +117,7 @@ class ImageViewerFrame extends JFrame implements Consumer<WaveChart>{
                     /*读取到的视频路径*/
                     String VideoPath=chooser.getSelectedFile().getPath();
                     VideoInput videoInput=new VideoInput(VideoPath);
+                    waveChart.clear();
                     videoInput.accept(waveChart);
                 }
             }

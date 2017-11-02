@@ -1,3 +1,7 @@
+import org.apache.commons.math3.fitting.PolynomialCurveFitter;
+import org.apache.commons.math3.fitting.WeightedObservedPoints;
+
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedList;
@@ -45,6 +49,7 @@ public class Calculate {
         int fastPhaseNum=0;//用于计算快相方向，快相为正则+1，快相为负则-1
         float startX_L;
         float endX_L;
+        Hashtable<Integer,Float> points=new Hashtable<>();//两个极值之间的点，用于拟合用
         for(Float x:LeyeX)
         {
             //遍历所有1s，一秒一秒的处理
@@ -69,5 +74,28 @@ public class Calculate {
                 }
             }
         }
+    }
+
+    //测试用
+    public static void main(String[] args)
+    {
+        WeightedObservedPoints obs=new WeightedObservedPoints();
+        obs.add((new BigDecimal(1)).doubleValue(),(new BigDecimal(3)).doubleValue());
+        obs.add((new BigDecimal(2)).doubleValue(),(new BigDecimal(5)).doubleValue());
+        obs.add((new BigDecimal(3)).doubleValue(),(new BigDecimal(7)).doubleValue());
+        /*
+        obs.add((new BigDecimal(1)).doubleValue(),3);
+        obs.add(2,5);
+        obs.add(3,7);ao
+        */
+        //实现一次多项式拟合
+        PolynomialCurveFitter fitter=PolynomialCurveFitter.create(1);
+        double[] coeff=fitter.fit(obs.toList());
+
+        BigDecimal bd = new BigDecimal(coeff[1]);
+        BigDecimal b=bd.setScale(1,BigDecimal.ROUND_HALF_UP);
+        double c=b.floatValue();
+        int i=0;
+
     }
 }
