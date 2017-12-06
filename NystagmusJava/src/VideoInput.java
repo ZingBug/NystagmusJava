@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.function.Consumer;
@@ -20,7 +21,7 @@ import java.util.function.Consumer;
 /**
  * Created by ZingBug on 2017/10/11.
  */
-public class VideoInput implements Consumer<WaveChart> {
+public class VideoInput implements Consumer<Map<String,WaveChart>> {
     public static boolean single=false;
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
     public static String dstSaveImageFile="C:\\dst";
@@ -49,7 +50,8 @@ public class VideoInput implements Consumer<WaveChart> {
     private boolean IsLeyeCenter;
 
     /*波形图*/
-    private WaveChart waveChart;//波形显示
+    private WaveChart waveChart_position;//波形显示 坐标
+    private WaveChart waveChart_rotation;//旋转SPV
     private PointFilter filterX;//滤波
 
     /*显示窗口*/
@@ -133,6 +135,7 @@ public class VideoInput implements Consumer<WaveChart> {
                 timer.cancel();
             }
         });
+
         frameNum=0;
         secondNum=0;
 
@@ -141,9 +144,10 @@ public class VideoInput implements Consumer<WaveChart> {
 
     }
     @Override
-    public void accept(WaveChart w)
+    public void accept(Map<String,WaveChart> map) throws NullPointerException
     {
-        waveChart=w;
+        waveChart_position=map.get("position");
+        waveChart_rotation=map.get("rotation");
     }
     /*判断文件夹是否存在，不存在则创建*/
     private boolean creatFile(File file)
@@ -207,7 +211,7 @@ public class VideoInput implements Consumer<WaveChart> {
                         secondNum++;
                         calculate.processLeyeX(secondNum);
                         System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
-                        System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
+                        //System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
                     }
                     System.out.println("视频播放结束");
                     timer.cancel();
@@ -238,12 +242,18 @@ public class VideoInput implements Consumer<WaveChart> {
             Leye=process.OutLeye();
             for(Box box:process.Lcircles())
             {
+                //先滤波处理
+                filterX.add(box);
+                box=filterX.get();
+
                 //圆心坐标
                 if(preBox==null)
                 {
                     preBox=box;
                     break;
                 }
+
+
                 if(distance(box,preBox)>(box.getR()+preBox.getR()/1.5)&&(Math.abs(box.getR()-preBox.getR())>box.getR()/2.0))
                 {
                     //与上一帧做对比
@@ -257,13 +267,15 @@ public class VideoInput implements Consumer<WaveChart> {
                 }
                 else if(!single)
                 {
-                    //做滤波处理
-                    filterX.add(new Box(box.getX()-LeyeCenter.getX(),0,0));
-                    double fx=filterX.get().getX();//滤波后的数据
-                    calculate.addLeyeX(fx);
-                    waveChart.add(frameNum,fx);
+                    calculate.addLeyeX(box.getX());
+                    waveChart_position.add(frameNum,box.getX());
                     //不做滤波处理
                     //waveChart.add(frameNum,box.getX()-LeyeCenter.getX());
+
+                    //旋转角度SPV
+                    double diffX=box.getX()-preBox.getX();
+                    double diffY=box.getY()-preBox.getY();
+                    waveChart_rotation.add(frameNum,Math.atan(diffY/diffX));
                 }
                 preBox=box;
             }

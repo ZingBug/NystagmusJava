@@ -10,130 +10,47 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="PointFilter.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="362">
-                    <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#2181#2344#0" expanded="true" />
-                      <element signature="e#2343#2344#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="WaveChart.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/WaveChart.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="776">
-                    <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="e#1972#1973#0" expanded="true" />
-                      <element signature="e#2005#2006#0" expanded="true" />
-                      <element signature="e#2035#2036#0" expanded="true" />
-                      <element signature="e#2067#2068#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoInput.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="209" column="89" lean-forward="false" selection-start-line="209" selection-start-column="89" selection-end-line="209" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4027#4221#0" expanded="true" />
-                <element signature="e#4220#4221#0" expanded="true" />
-                <element signature="e#4432#4433#0" expanded="true" />
-                <element signature="e#4459#4460#0" expanded="true" />
-                <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
-                <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Box.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Box.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-              <folding>
-                <element signature="e#601#602#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calculate.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Calculate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="135" column="48" lean-forward="false" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1270#1271#0" expanded="true" />
-                <element signature="e#1303#1304#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImgProcess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="65" column="19" lean-forward="false" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#GravityCenter#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#CircleFit#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#circleLeastFit#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#EdgeDetect#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#PlotC#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#drawCross#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#drawCross#0;class#ImgProcess#0" expanded="false" />
-                <element signature="docComment;method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
-                <element signature="method#ProcessSeparate#0;class#ImgProcess#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+            <state relative-caret-position="667">
+              <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaveChart.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WaveChart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChartBasePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ChartBasePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,6 +70,11 @@
       <find>hash</find>
       <find>Lcircles</find>
       <find>loat</find>
+      <find>左</find>
+      <find>眼震方向</find>
+      <find>waveChart</find>
+      <find>Thread</find>
+      <find>preBox</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -165,11 +87,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/Box.java" />
         <option value="$PROJECT_DIR$/src/ImgProcess.java" />
+        <option value="$PROJECT_DIR$/src/Calculate.java" />
         <option value="$PROJECT_DIR$/src/PointFilter.java" />
-        <option value="$PROJECT_DIR$/src/WaveChart.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/VideoInput.java" />
-        <option value="$PROJECT_DIR$/src/Calculate.java" />
+        <option value="$PROJECT_DIR$/src/ChartBasePanel.java" />
+        <option value="$PROJECT_DIR$/src/WaveChart.java" />
       </list>
     </option>
   </component>
@@ -186,8 +109,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-13" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -224,6 +147,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,16 +165,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="F:/Spring/socket" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -433,28 +356,32 @@
       <workItem from="1509504905894" duration="810000" />
       <workItem from="1509525207040" duration="13863000" />
       <workItem from="1509548362916" duration="1290000" />
-      <workItem from="1509585173861" duration="14695000" />
+      <workItem from="1509585173861" duration="15282000" />
+      <workItem from="1509709285383" duration="1382000" />
+      <workItem from="1510554979973" duration="125000" />
+      <workItem from="1512112496322" duration="179000" />
+      <workItem from="1512128500578" duration="3008000" />
+      <workItem from="1512373626486" duration="9273000" />
+      <workItem from="1512396050579" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135034000" />
+    <option name="totallyTimeSpent" value="149602000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22751896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24918744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3022388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042644" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -462,6 +389,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -482,31 +410,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="166" />
+      <option name="time" value="188" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="LeyeX" language="JAVA" />
+        <watch expression="Math.atan(diffY/diffX)" language="JAVA" />
+        <watch expression="waveChart_position" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
-            <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
-            <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1311">
@@ -514,6 +428,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -523,7 +438,7 @@
         <state relative-caret-position="10005">
           <caret line="435" column="34" lean-forward="true" selection-start-line="435" selection-start-column="34" selection-end-line="435" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -549,7 +464,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1058">
           <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -559,10 +479,6 @@
           <caret line="85" column="16" lean-forward="true" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -576,6 +492,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -585,7 +502,7 @@
         <state relative-caret-position="2208">
           <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -611,7 +528,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1058">
           <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -621,10 +543,6 @@
           <caret line="102" column="31" lean-forward="true" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -638,6 +556,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -648,10 +567,6 @@
           <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -683,7 +598,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -692,7 +612,7 @@
         <state relative-caret-position="2944">
           <caret line="204" column="0" lean-forward="true" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -721,6 +641,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,10 +652,6 @@
           <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -766,7 +683,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -775,7 +697,7 @@
         <state relative-caret-position="3197">
           <caret line="219" column="7" lean-forward="true" selection-start-line="219" selection-start-column="7" selection-end-line="219" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -804,6 +726,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,10 +737,6 @@
           <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -828,7 +747,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -837,7 +761,7 @@
         <state relative-caret-position="368">
           <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -866,6 +790,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -876,10 +801,6 @@
           <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
@@ -890,7 +811,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -899,7 +825,7 @@
         <state relative-caret-position="1104">
           <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -935,20 +861,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/io/PrintWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="292" column="44" lean-forward="false" selection-start-line="292" selection-start-column="44" selection-end-line="292" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/io/FileOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="201" column="53" lean-forward="false" selection-start-line="201" selection-start-column="47" selection-end-line="201" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/io/PrintWriter.java" />
+    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/io/FileOutputStream.java" />
     <entry file="jar://$PROJECT_DIR$/libs/javacv.jar!/org/bytedeco/javacv/FFmpegFrameGrabber.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8327">
@@ -956,13 +870,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="1107" column="16" lean-forward="false" selection-start-line="1107" selection-start-column="12" selection-end-line="1107" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/util/HashMap.java" />
     <entry file="jar://$PROJECT_DIR$/libs/javacv.jar!/org/bytedeco/javacv/FrameGrabber.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -970,13 +878,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/Java/jdk-9/lib/src.zip!/java.base/java/lang/NumberFormatException.java" />
     <entry file="jar://$PROJECT_DIR$/libs/opencv.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -1005,57 +907,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaveChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1972#1973#0" expanded="true" />
-            <element signature="e#2005#2006#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#2067#2068#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2181#2344#0" expanded="true" />
-            <element signature="e#2343#2344#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/commons-math3-3.6.1.jar!/org/apache/commons/math3/fitting/AbstractCurveFitter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="279">
+          <caret line="63" column="40" lean-forward="false" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
+        <state relative-caret-position="824">
           <caret line="65" column="19" lean-forward="false" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#GrayDetect#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#Binary#0;class#ImgProcess#0" expanded="false" />
             <element signature="docComment;method#EntropySeg#0;class#ImgProcess#0" expanded="false" />
@@ -1077,41 +951,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
+    <entry file="file://$PROJECT_DIR$/src/Box.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="209" column="89" lean-forward="false" selection-start-line="209" selection-start-column="89" selection-end-line="209" selection-end-column="89" />
+        <state relative-caret-position="524">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="method#equals#0;class#Box#0" expanded="false" />
+            <element signature="method#clone#0;class#Box#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChartBasePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4027#4221#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#saveFrame#0;class#Main#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#4688:6451" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaveChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="277" column="0" lean-forward="false" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Box.java">
+    <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        <state relative-caret-position="736">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="135" column="48" lean-forward="false" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#1303#1304#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
           </folding>
         </state>
       </provider>

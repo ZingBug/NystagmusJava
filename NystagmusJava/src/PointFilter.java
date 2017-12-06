@@ -13,18 +13,12 @@ import java.util.Queue;
 public class PointFilter {
     private final int N;
     private LinkedList<Box> points;
-    private Box value[];
     private int index;
     public PointFilter(int N)
     {
         points=new LinkedList<>();
-        value=new Box[N];
         index=0;
         this.N=N;
-        for(int i=0;i<N;i++)
-        {
-            value[i]=new Box(0,0,0);
-        }
     }
     public PointFilter()
     {
@@ -40,23 +34,22 @@ public class PointFilter {
         {
             throw new NoSuchElementException("No elements");
         }
-        value[index++]=points.removeFirst();
-        if(index==N)
+        if(points.size()>=6)
         {
-            index=0;
+            points.removeFirst();
         }
         float sumX=0f;
         float sumY=0f;
         float sumR=0f;
 
-        for(Box box:value)
+        for(Box box:points)
         {
             sumX+=box.getX();
             sumY+=box.getY();
             sumR+=box.getR();
         }
 
-        return new Box(sumX/value.length,sumY/value.length,sumR/value.length);
+        return new Box(sumX/points.size(),sumY/points.size(),sumR/points.size());
     }
     public boolean isGet()
     {

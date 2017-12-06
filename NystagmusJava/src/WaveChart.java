@@ -10,22 +10,40 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import javax.swing.*;
+import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.util.function.BiConsumer;
 
 /**
  * Created by ZingBug on 2017/11/1.
  */
-public class WaveChart extends ChartPanel implements Runnable {
-    private static XYSeries XYSeries;
-    private static Font font=new Font("宋体",Font.PLAIN,12);
+public class WaveChart extends ChartBasePanel implements Runnable {
+    private XYSeries XYSeries;
+    private Font font=new Font("宋体",Font.PLAIN,12);
+    private ChartPanel chartPanel;
+    private JFreeChart chart;  // 创建一个JFreeChart时间序列图表
 
     public WaveChart(String chartContent,String title,String yaxisName)
     {
-        super(createChart(chartContent,title,yaxisName));
-    }
+        super();
+        this.chart=createChart(chartContent,title,yaxisName);
+        addChart(this.chart);
 
-    private static JFreeChart createChart(String chartContent, String title, String yaxisName){
+        // 将JFreeChart放在专用的图表容器ChartPanel中
+        this.chartPanel = new ChartPanel(this.chart);
+        this.chartPanel.setPreferredSize(new Dimension(500, 350));
+
+        // 设置chartPanel容器边框
+        CompoundBorder compoundBorder = BorderFactory.createCompoundBorder(
+                BorderFactory.createEmptyBorder(1, 1,1, 1),
+                BorderFactory.createEtchedBorder());
+        this.chartPanel.setBorder(compoundBorder);
+
+        // 将chartPanel加入到本容器中
+        add(this.chartPanel);
+    }
+    private JFreeChart createChart(String chartContent, String title, String yaxisName){
         //创建时序图对象
         XYSeries = new XYSeries(chartContent);
         XYSeriesCollection xySeriesCollection=new XYSeriesCollection(XYSeries);
@@ -42,7 +60,7 @@ public class WaveChart extends ChartPanel implements Runnable {
 
         ChartFactory.setChartTheme(chartTheme);
 
-        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"时间(秒)",yaxisName,xySeriesCollection);
+        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"帧数",yaxisName,xySeriesCollection);
         XYPlot xyplot = jfreechart.getXYPlot();
         //纵坐标设定
         ValueAxis valueaxis = xyplot.getDomainAxis();
@@ -52,7 +70,6 @@ public class WaveChart extends ChartPanel implements Runnable {
         //valueaxis.setFixedAutoRange(100);
 
         valueaxis = xyplot.getRangeAxis();
-
 
         return jfreechart;
     }

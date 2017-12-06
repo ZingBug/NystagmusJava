@@ -4,7 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -45,10 +47,16 @@ public class Main {
             @Override
             public void run() {
                 ImageViewerFrame frame=new ImageViewerFrame();
-                WaveChart waveChart=new WaveChart("X轴坐标","眼震波形","坐标");
-                frame.accept(waveChart);
-                frame.getContentPane().add(waveChart,new BorderLayout().CENTER);
-                (new Thread(waveChart)).start();
+                WaveChart waveChart_position=new WaveChart("X轴坐标","眼震波形","坐标");
+                WaveChart waveChart_rotation=new WaveChart("X轴","旋转SPV","角度");
+                frame.getContentPane().add(waveChart_position,new BorderLayout().NORTH);
+                frame.getContentPane().add(waveChart_rotation,new BorderLayout().SOUTH);
+                Map<String,WaveChart> map=new HashMap<>();
+                map.put("position",waveChart_position);
+                map.put("rotation",waveChart_rotation);
+                frame.accept(map);
+
+                //(new Thread(waveChart)).start();
                 frame.pack();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setVisible(true);
@@ -82,12 +90,12 @@ public class Main {
         return 0;
     }
 }
-class ImageViewerFrame extends JFrame implements Consumer<WaveChart>{
+class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>{
     private JLabel label;
     private JFileChooser chooser;
     private static final int DEFAULT_WIDTH=300;
     private static final int DEFAULT_HEIGHT=400;
-    private WaveChart waveChart;
+    private Map<String,WaveChart> map;
 
     public ImageViewerFrame()
     {
@@ -117,8 +125,11 @@ class ImageViewerFrame extends JFrame implements Consumer<WaveChart>{
                     /*读取到的视频路径*/
                     String VideoPath=chooser.getSelectedFile().getPath();
                     VideoInput videoInput=new VideoInput(VideoPath);
-                    waveChart.clear();
-                    videoInput.accept(waveChart);
+                    for(WaveChart waveChart:map.values())
+                    {
+                        waveChart.clear();
+                    }
+                    videoInput.accept(map);
                 }
             }
         });
@@ -177,9 +188,13 @@ class ImageViewerFrame extends JFrame implements Consumer<WaveChart>{
         });
     }
     @Override
-    public void accept(WaveChart w)
+    public void accept(Map<String,WaveChart> map) throws NullPointerException
     {
-        waveChart=w;
+        if(map==null)
+        {
+            System.out.println("图表错误");
+        }
+        this.map=map;
     }
     public void setImage(String name)
     {
