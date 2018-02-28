@@ -32,7 +32,7 @@ public class WaveChart extends ChartBasePanel implements Runnable {
 
         // 将JFreeChart放在专用的图表容器ChartPanel中
         this.chartPanel = new ChartPanel(this.chart);
-        this.chartPanel.setPreferredSize(new Dimension(500, 350));
+        this.chartPanel.setPreferredSize(new Dimension(600, 350));
 
         // 设置chartPanel容器边框
         CompoundBorder compoundBorder = BorderFactory.createCompoundBorder(
@@ -60,7 +60,7 @@ public class WaveChart extends ChartBasePanel implements Runnable {
 
         ChartFactory.setChartTheme(chartTheme);
 
-        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"帧数",yaxisName,xySeriesCollection);
+        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"Time",yaxisName,xySeriesCollection);
         XYPlot xyplot = jfreechart.getXYPlot();
         //纵坐标设定
         ValueAxis valueaxis = xyplot.getDomainAxis();

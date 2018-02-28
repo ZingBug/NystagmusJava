@@ -16,13 +16,17 @@ import java.io.File;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 /**
  * Created by ZingBug on 2017/10/11.
  */
 public class VideoInput implements Consumer<Map<String,WaveChart>> {
-    public static boolean single=false;
+    public static boolean single=false;//是否为单张照片
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
     public static String dstSaveImageFile="C:\\dst";
     public static String srcSaveImageFile="C:\\src";
@@ -61,6 +65,13 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     private Calculate calculate;//计算
     private final int TimerSecondNum=50;//每秒帧数
     private int secondNum=0;//秒数
+
+    //阻塞队列
+    private final int queueSize=100;
+    private BlockingDeque<Frame> frameQueue=new LinkedBlockingDeque<>(queueSize);
+
+    //信号量
+    private static boolean STOP=false;
 
     public VideoInput(String VideoPath)
     {
@@ -139,7 +150,16 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         frameNum=0;
         secondNum=0;
 
-        timer.schedule(new readFrame(),50,10);//执行多次
+
+        double rate=capture.getFrameRate();
+        Thread readImageThread=new ReadImageThread(capture);
+        Thread processImageThread=new ProcessImageThread(rate);
+        STOP=false;
+        readImageThread.start();
+        processImageThread.start();
+
+
+        //timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
 
     }
@@ -211,7 +231,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                         secondNum++;
                         calculate.processLeyeX(secondNum);
                         System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
-                        //System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
+                        System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
                     }
                     System.out.println("视频播放结束");
                     timer.cancel();
@@ -243,8 +263,8 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             for(Box box:process.Lcircles())
             {
                 //先滤波处理
-                filterX.add(box);
-                box=filterX.get();
+                //filterX.add(box);
+                //box=filterX.get();
 
                 //圆心坐标
                 if(preBox==null)
@@ -268,9 +288,9 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                 else if(!single)
                 {
                     calculate.addLeyeX(box.getX());
-                    waveChart_position.add(frameNum,box.getX());
+                    //waveChart_position.add(frameNum,box.getX());
                     //不做滤波处理
-                    //waveChart.add(frameNum,box.getX()-LeyeCenter.getX());
+                    waveChart_position.add(frameNum/50.0,box.getX()-LeyeCenter.getX());
 
                     //旋转角度SPV
                     double diffX=box.getX()-preBox.getX();
@@ -292,6 +312,189 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         private double distance(Box x,Box y)
         {
             //求两点之间绝对距离
+            return Math.sqrt(Math.pow(x.getX()-y.getX(),2)+Math.pow(x.getY()-y.getY(),2));
+        }
+    }
+
+    private class ReadImageThread extends Thread
+    {
+        private FFmpegFrameGrabber grabber;//视频
+        private double rate;//帧速率
+        private int delay;//延迟时间
+        private boolean stop;
+        private int frameNum;
+        private ReadImageThread(FFmpegFrameGrabber grabber)
+        {
+            this.grabber=grabber;
+            this.rate=grabber.getFrameRate();
+            this.delay=(int)(1000/rate);
+            this.stop=false;
+            this.frameNum=0;
+        }
+        public void setStop(boolean stop)
+        {
+            this.stop=stop;
+        }
+        @Override
+        public void run() {
+            while (!stop)
+            {
+                try
+                {
+                    Frame frame=grabber.grabFrame();
+                    if(frame==null)
+                    {
+                        System.out.println("读取函数结束"+this.frameNum);
+                        STOP=true;
+                        break;
+                    }
+                    frameQueue.put(frame);//往队列中添加图像
+
+                    this.frameNum++;
+                    Thread.sleep(delay);
+                }
+                catch (FrameGrabber.Exception e)
+                {
+                    System.out.println("视频读取出现问题");
+                    System.out.println(e.toString());
+                    break;
+                }
+                catch (InterruptedException e)
+                {
+                    System.out.println("视频读取时延迟出现问题");
+                    System.out.println(e.toString());
+                }
+            }
+        }
+    }
+
+    private class ProcessImageThread extends Thread
+    {
+        private boolean stop;
+        private int delay;//延迟
+        //private CanvasFrame canvas;
+        private int frameNum;//帧数
+        private double rate;//帧率
+        private long startTime;
+        private long endTime;
+
+        private ProcessImageThread(double rate)
+        {
+            this.stop=false;
+            this.rate=rate;
+            this.delay=(int)(1000/rate);
+            //canvas=new CanvasFrame("显示");
+            this.frameNum=0;
+        }
+        @Override
+        public void run() {
+            //startTime=System.currentTimeMillis();
+            while (!stop)
+            {
+                try
+                {
+                    if(STOP&&frameQueue.size()==0)
+                    {
+                        if(!single)
+                        {
+                            System.out.println("处理图像结束："+this.frameNum);
+                            secondNum++;
+                            calculate.processLeyeX(secondNum);
+                            System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
+                            System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
+                        }
+                        break;
+                    }
+                    //AllFrame=new Frame();
+                    AllFrame=frameQueue.poll(500L, TimeUnit.MILLISECONDS);//取出来并删除
+                    if(AllFrame==null)
+                    {
+                        continue;
+                    }
+                    //图像切割
+                    AllEyeMat=matConverter.convertToMat(AllFrame);
+                    if(AllEyeMat==null)
+                    {
+                        continue;
+                    }
+                    Rect reye_box = new Rect(0, 1, AllEyeMat.cols()/2, AllEyeMat.rows() - 1);
+                    Rect leye_box = new Rect(AllEyeMat.cols()/2, 1, AllEyeMat.cols()/2-1, AllEyeMat.rows() - 1);
+                    LeftFrameMat=new Mat(AllEyeMat,reye_box);//左眼
+                    RightFrameMat=new Mat(AllEyeMat,leye_box);//右眼
+
+                    this.frameNum++;
+
+                    /*图像处理程序*/
+                    ImgProcess process=new ImgProcess();
+                    process.Start(LeftFrameMat,1.8);
+                    process.ProcessSeparate();
+
+                    Leye=process.OutLeye();
+                    for(Box box:process.Lcircles())
+                    {
+                        //先滤波处理
+                        filterX.add(box);
+                        box=filterX.get();
+
+                        //圆心坐标
+                        if(preBox==null)
+                        {
+                            preBox=box;
+                            break;
+                        }
+
+                        if(distance(box,preBox)>(box.getR()+preBox.getR()/1.5)&&(Math.abs(box.getR()-preBox.getR())>box.getR()/2.0))
+                        {
+                            //与上一帧做对比
+                            return;
+                        }
+                        if(!IsLeyeCenter&&!single)
+                        {
+                            IsLeyeCenter=true;
+                            LeyeCenter.setX(box.getX());
+                            LeyeCenter.setY(box.getY());
+                        }
+                        else if(!single)
+                        {
+                            calculate.addLeyeX(box.getX());
+                            //waveChart_position.add(frameNum,box.getX());
+                            //不做滤波处理
+                            waveChart_position.add(frameNum/this.rate,box.getX()-LeyeCenter.getX());
+
+                            //旋转角度SPV
+                            double diffX=box.getX()-preBox.getX();
+                            double diffY=box.getY()-preBox.getY();
+                            waveChart_rotation.add(frameNum,Math.atan(diffY/diffX));
+                        }
+                        preBox=box;
+                    }
+                    if(!single&&frameNum%this.rate==0)
+                    {
+                        secondNum++;
+                        calculate.processLeyeX(secondNum);
+                        System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
+                    }
+                    //后续显示
+                    LeftFrame=matConverter.convert(Leye);//左眼
+                    canvas.showImage(LeftFrame);
+
+                    //Thread.sleep(delay);
+                }
+                catch (InterruptedException e)
+                {
+                    System.out.println("图像处理出现问题"+frameNum);
+                    System.out.println(e.toString());
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("图像显示出现问题"+frameNum);
+                    System.out.println(e.toString());
+                }
+            }
+        }
+        private double distance(Box x,Box y)
+        {
+            //求两点之间距离
             return Math.sqrt(Math.pow(x.getX()-y.getX(),2)+Math.pow(x.getY()-y.getY(),2));
         }
     }
