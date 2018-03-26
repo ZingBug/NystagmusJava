@@ -20,6 +20,7 @@ public class Main {
     private static final String name="F:\\GitHub\\NystagmusJava\\NystagmusJava\\1.jpg";
     private static final String textName="config.txt";
     public static String fileName="";
+
     public static void main(String[] args)
     {
         File courseFile=new File("");
@@ -99,9 +100,10 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
     private static final int DEFAULT_HEIGHT=400;
     private Map<String,WaveChart> map;
 
+    private static final String onlineAddress="http://192.168.43.119:8080/?action=stream?dummy=param.mjpg";
+
     public ImageViewerFrame()
     {
-
         setTitle("ImageViewer");
         setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
         label=new JLabel();
@@ -116,6 +118,8 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
         menu.add(openItem);
         JMenuItem exitItem = new JMenuItem("Close");
         menu.add(exitItem);
+        JMenuItem onlineItem=new JMenuItem("Online");
+        menu.add(onlineItem);
         JMenuItem setItem=new JMenuItem("Set");
         menu.add(setItem);
         openItem.addActionListener(new ActionListener() {
@@ -132,6 +136,7 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                         waveChart.clear();
                     }
                     videoInput.accept(map);
+                    videoInput.isOnline=false;
                 }
             }
         });
@@ -186,6 +191,18 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                         JOptionPane.showMessageDialog(null,"输入不标准");
                     }
                 }
+            }
+        });
+        onlineItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VideoInput videoInput=new VideoInput(onlineAddress);
+                for(WaveChart waveChart:map.values())
+                {
+                    waveChart.clear();
+                }
+                videoInput.accept(map);
+                videoInput.isOnline=true;
             }
         });
     }

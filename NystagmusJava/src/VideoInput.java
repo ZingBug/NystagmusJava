@@ -31,7 +31,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     public static String dstSaveImageFile="C:\\dst";
     public static String srcSaveImageFile="C:\\src";
     public static int frameNum=0;
-    public static boolean IsSaveImage=true;//是否选择保存图像
+    public static boolean IsSaveImage=false;//是否选择保存图像
     public static boolean IsSaveImageSingle=false;//是否保存当前文件图像
     public static String currentVideoNamePinYin="";
 
@@ -72,6 +72,9 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
 
     //信号量
     private static boolean STOP=false;
+
+    //是否为在线视频
+    public boolean isOnline=false;
 
     public VideoInput(String VideoPath)
     {
@@ -406,21 +409,32 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                         break;
                     }
                     //AllFrame=new Frame();
+
                     AllFrame=frameQueue.poll(500L, TimeUnit.MILLISECONDS);//取出来并删除
+
                     if(AllFrame==null)
                     {
                         continue;
                     }
-                    //图像切割
                     AllEyeMat=matConverter.convertToMat(AllFrame);
                     if(AllEyeMat==null)
                     {
                         continue;
                     }
-                    Rect reye_box = new Rect(0, 1, AllEyeMat.cols()/2, AllEyeMat.rows() - 1);
-                    Rect leye_box = new Rect(AllEyeMat.cols()/2, 1, AllEyeMat.cols()/2-1, AllEyeMat.rows() - 1);
-                    LeftFrameMat=new Mat(AllEyeMat,reye_box);//左眼
-                    RightFrameMat=new Mat(AllEyeMat,leye_box);//右眼
+
+                    if(isOnline)
+                    {
+                        //如果是在线视频
+                        LeftFrameMat=AllEyeMat.clone();
+                    }
+                    else
+                    {
+                        //本地视频，需要图像切割
+                        Rect reye_box = new Rect(0, 1, AllEyeMat.cols()/2, AllEyeMat.rows() - 1);
+                        Rect leye_box = new Rect(AllEyeMat.cols()/2, 1, AllEyeMat.cols()/2-1, AllEyeMat.rows() - 1);
+                        LeftFrameMat=new Mat(AllEyeMat,reye_box);//左眼
+                        RightFrameMat=new Mat(AllEyeMat,leye_box);//右眼
+                    }
 
                     this.frameNum++;
 
