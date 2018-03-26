@@ -105,7 +105,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             }
         }
 
-        if(VideoPath.contains("jpg"))
+        if(!isOnline&&VideoPath.contains("jpg"))
         {
             //单张照片
             single=true;
