@@ -130,13 +130,12 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                 {
                     /*读取到的视频路径*/
                     String VideoPath=chooser.getSelectedFile().getPath();
-                    VideoInput videoInput=new VideoInput(VideoPath);
+                    VideoInput videoInput=new VideoInput(VideoPath,false);
                     for(WaveChart waveChart:map.values())
                     {
                         waveChart.clear();
                     }
                     videoInput.accept(map);
-                    videoInput.isOnline=false;
                 }
             }
         });
@@ -196,13 +195,12 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
         onlineItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VideoInput videoInput=new VideoInput(onlineAddress);
+                VideoInput videoInput=new VideoInput(onlineAddress,true);
                 for(WaveChart waveChart:map.values())
                 {
                     waveChart.clear();
                 }
                 videoInput.accept(map);
-                videoInput.isOnline=true;
             }
         });
     }

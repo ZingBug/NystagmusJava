@@ -15,21 +15,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoInput.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoInput.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+            <state relative-caret-position="-2310">
+              <caret line="202" column="26" lean-forward="false" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
               <folding>
                 <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
                 <element signature="docComment;method#ToPinyin#0;class#VideoInput#0" expanded="false" />
                 <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
                 <element signature="class#readFrame#0;class#VideoInput#0" expanded="false" />
                 <element signature="class#ReadImageThread#0;class#VideoInput#0" expanded="false" />
-                <element signature="e#10701#10702#0" expanded="true" />
-                <element signature="e#10739#10740#0" expanded="true" />
+                <element signature="e#10753#10754#0" expanded="true" />
+                <element signature="e#10791#10792#0" expanded="true" />
                 <element signature="method#distance#0;class#ProcessImageThread#0;class#VideoInput#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImgProcess.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,10 +47,10 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1029">
-              <caret line="132" column="59" lean-forward="false" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+            <state relative-caret-position="315">
+              <caret line="137" column="43" lean-forward="false" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
               <folding>
-                <element signature="method#actionPerformed#0;class#5136:6899" expanded="false" />
+                <element signature="method#actionPerformed#0;class#5095:6858" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -478,12 +488,12 @@
       <workItem from="1521472017671" duration="405000" />
       <workItem from="1521548949972" duration="12000" />
       <workItem from="1521702889641" duration="2050000" />
-      <workItem from="1522038438502" duration="3763000" />
+      <workItem from="1522038438502" duration="4986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234088000" />
+    <option name="totallyTimeSpent" value="235311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -594,8 +604,8 @@
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
             <element signature="class#readFrame#0;class#VideoInput#0" expanded="false" />
             <element signature="class#ReadImageThread#0;class#VideoInput#0" expanded="false" />
-            <element signature="e#10701#10702#0" expanded="true" />
-            <element signature="e#10739#10740#0" expanded="true" />
+            <element signature="e#10753#10754#0" expanded="true" />
+            <element signature="e#10791#10792#0" expanded="true" />
             <element signature="method#distance#0;class#ProcessImageThread#0;class#VideoInput#0" expanded="false" />
           </folding>
         </state>
@@ -653,8 +663,8 @@
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
             <element signature="class#readFrame#0;class#VideoInput#0" expanded="false" />
             <element signature="class#ReadImageThread#0;class#VideoInput#0" expanded="false" />
-            <element signature="e#10701#10702#0" expanded="true" />
-            <element signature="e#10739#10740#0" expanded="true" />
+            <element signature="e#10753#10754#0" expanded="true" />
+            <element signature="e#10791#10792#0" expanded="true" />
             <element signature="method#distance#0;class#ProcessImageThread#0;class#VideoInput#0" expanded="false" />
           </folding>
         </state>
@@ -691,8 +701,8 @@
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
             <element signature="class#readFrame#0;class#VideoInput#0" expanded="false" />
             <element signature="class#ReadImageThread#0;class#VideoInput#0" expanded="false" />
-            <element signature="e#10701#10702#0" expanded="true" />
-            <element signature="e#10739#10740#0" expanded="true" />
+            <element signature="e#10753#10754#0" expanded="true" />
+            <element signature="e#10791#10792#0" expanded="true" />
             <element signature="method#distance#0;class#ProcessImageThread#0;class#VideoInput#0" expanded="false" />
           </folding>
         </state>
@@ -844,13 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Java/JDK/jdk-9.0.1/lib/src.zip!/java.base/java/util/concurrent/BlockingDeque.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1143">
@@ -887,28 +890,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="132" column="59" lean-forward="false" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+        <state relative-caret-position="315">
+          <caret line="137" column="43" lean-forward="false" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
           <folding>
-            <element signature="method#actionPerformed#0;class#5136:6899" expanded="false" />
+            <element signature="method#actionPerformed#0;class#5095:6858" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+        <state relative-caret-position="-2310">
+          <caret line="202" column="26" lean-forward="false" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
           <folding>
             <element signature="method#creatFile#0;class#VideoInput#0" expanded="false" />
             <element signature="docComment;method#ToPinyin#0;class#VideoInput#0" expanded="false" />
             <element signature="method#ToPinyin#0;class#VideoInput#0" expanded="false" />
             <element signature="class#readFrame#0;class#VideoInput#0" expanded="false" />
             <element signature="class#ReadImageThread#0;class#VideoInput#0" expanded="false" />
-            <element signature="e#10701#10702#0" expanded="true" />
-            <element signature="e#10739#10740#0" expanded="true" />
+            <element signature="e#10753#10754#0" expanded="true" />
+            <element signature="e#10791#10792#0" expanded="true" />
             <element signature="method#distance#0;class#ProcessImageThread#0;class#VideoInput#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

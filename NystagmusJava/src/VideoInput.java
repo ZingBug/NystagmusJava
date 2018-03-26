@@ -74,10 +74,11 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     private static boolean STOP=false;
 
     //是否为在线视频
-    public boolean isOnline=false;
+    private boolean isOnline=false;
 
-    public VideoInput(String VideoPath)
+    public VideoInput(String VideoPath,boolean isOnline)
     {
+        this.isOnline=isOnline;
         if(IsSaveImage)
         {
             //如果存在文件夹
@@ -105,7 +106,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             }
         }
 
-        if(!isOnline&&VideoPath.contains("jpg"))
+        if((!isOnline)&&VideoPath.contains("jpg"))
         {
             //单张照片
             single=true;
