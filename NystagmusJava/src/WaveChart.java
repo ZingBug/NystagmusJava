@@ -60,7 +60,7 @@ public class WaveChart extends ChartBasePanel implements Runnable {
 
         ChartFactory.setChartTheme(chartTheme);
 
-        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"Time",yaxisName,xySeriesCollection);
+        JFreeChart jfreechart = ChartFactory.createXYLineChart(title,"Time/s",yaxisName,xySeriesCollection);
         XYPlot xyplot = jfreechart.getXYPlot();
         //纵坐标设定
         ValueAxis valueaxis = xyplot.getDomainAxis();

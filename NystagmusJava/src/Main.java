@@ -50,7 +50,7 @@ public class Main {
                 ImageViewerFrame frame=new ImageViewerFrame();
                 //WaveChart waveChart_position=new WaveChart("points","Nystagmus Waveform","Coordinate");
                 //WaveChart waveChart_position=new WaveChart("","","Horizontal Coordinate");
-                WaveChart waveChart_position=new WaveChart("","","Vertical Coordinate");
+                WaveChart waveChart_position=new WaveChart("","","Horizontal Coordinate/mm");
                 WaveChart waveChart_rotation=new WaveChart("X轴","旋转SPV","角度");
                 frame.getContentPane().add(waveChart_position,new BorderLayout().NORTH);
                 frame.getContentPane().add(waveChart_rotation,new BorderLayout().SOUTH);

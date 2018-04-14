@@ -421,7 +421,6 @@ public class ImgProcess {
         opencv_imgproc.cvLine(img,left,right,color,thickness,8,0);
         //绘制竖线
         opencv_imgproc.cvLine(img,above,below,color,thickness,8,0);
-        return;
     }
     /**
      * 图像识别
@@ -436,7 +435,6 @@ public class ImgProcess {
         CvSeq cvLcontour=new CvSeq(null);//检测的整个大轮廓
         CvSeq cvtempLcontour=new CvSeq(null);//临时轮廓
         CvSeq cvLcontourKeep=new CvSeq(null);//需要绘制的轮廓
-
 
         Lgrayimg=GrayDetect(Leye);
 
@@ -506,7 +504,7 @@ public class ImgProcess {
             PlotC(Lcircles,LeyeImage);
         }
         //绘制轮廓
-        opencv_imgproc.cvDrawContours(LeyeImage,cvLcontourKeep,cvgreen,cvgreen,1);
+        //opencv_imgproc.cvDrawContours(LeyeImage,cvLcontourKeep,cvgreen,cvgreen,1);
         Leye=new Mat(LeyeImage);
     }
     public Iterable<Box> Lcircles()
