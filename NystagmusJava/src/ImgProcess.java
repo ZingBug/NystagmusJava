@@ -45,11 +45,21 @@ public class ImgProcess {
      */
     public void Start(Mat leye,double eyeratio)
     {
+        leye=CropImage(leye,true);
+
+        opencv_core.flip(leye,leye,1);//水平翻转
+
         Leye=new Mat(leye);
         EyeRatio=eyeratio;
         LeyeImage=new IplImage(leye);
         //保存原始图像
         OriginalLeye=new Mat(leye);
+    }
+
+    private Mat CropImage(Mat image,boolean eye)
+    {
+        Rect box = new Rect(image.cols()/4, image.rows()/5, image.cols()/2, image.rows()*3/5);
+        return new Mat(image,box);
     }
 
     /**
@@ -91,6 +101,21 @@ public class ImgProcess {
         opencv_core.addWeighted(grayimg,1,bottomHat,1,0.0,tempHat);//tempHat=grayimg+bottomHat
         opencv_core.addWeighted(tempHat,1,topHat,-1,0,grayimg);//grayimg=tempHat-topHat=grayimg+bottomHat-topHat
 
+        Mat dst=new Mat();
+
+
+        /*
+        //直方图均衡化
+        MatVector vector=new MatVector(3);
+        opencv_core.split(grayimg,vector);
+        MatVector vector1=new MatVector(3);
+
+        for(int i=0;i<grayimg.channels();i++)
+        {
+            opencv_imgproc.equalizeHist(vector.get(i),vector.get(i));
+        }
+        opencv_core.merge(vector,grayimg);
+        */
         if(VideoInput.single)
         {
             Frame frame=matConverter.convert(grayimg);
@@ -98,7 +123,7 @@ public class ImgProcess {
             canvasFrame.setCanvasSize(160,120);
             canvasFrame.showImage(frame);
         }
-        Mat grayout=Binary(grayimg,35);//直接给定阈值二值法
+        Mat grayout=Binary(grayimg,50);//直接给定阈值二值法
         //Mat grayout=EntropySeg(grayimg);//最大阈值法，自适应
         Mat grayout1=RemoveSmallRegion(grayout);
         //opencv_imgproc.morphologyEx(grayout,grayout,opencv_imgproc.MORPH_OPEN,element_open);//开运算

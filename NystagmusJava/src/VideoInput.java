@@ -123,6 +123,50 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         {
             //单张照片
             single=true;
+            /*
+            capture=new FFmpegFrameGrabber(VideoPath);
+            try
+            {
+                capture.start();
+
+            }
+            catch (FrameGrabber.Exception e1)
+            {
+                //播放失败
+                System.out.println("图片加载失败 "+e1.toString());
+                return;
+            }
+            System.out.println("图片加载成功 "+VideoPath);
+            canvas=new CanvasFrame("左眼显示");
+            canvas.setCanvasSize(160,120);
+            //增加关闭监听
+            canvas.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    super.windowClosing(e);
+                    timer.cancel();
+                }
+            });
+            try
+            {
+                AllFrame=capture.grabFrame();
+                AllEyeMat=matConverter.convertToMat(AllFrame);
+
+                ImgProcess process=new ImgProcess();
+                process.Start(AllEyeMat,1.8);
+                //process.Start(AllEyeMat,1.8);
+                process.ProcessSeparate();
+
+                Leye=process.OutLeye();
+                LeftFrame=matConverter.convert(Leye);//左眼
+                canvas.showImage(LeftFrame);
+            }
+            catch (FrameGrabber.Exception e)
+            {
+                System.out.println("视频播放结束 "+e.toString());
+                timer.cancel();
+            }
+            */
         }
         else
         {
@@ -172,11 +216,21 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         Thread readImageThread=new ReadImageThread(capture);
         Thread processImageThread=new ProcessImageThread(rate);
         STOP=false;
-        readImageThread.start();
-        processImageThread.start();
+        //readImageThread.start();
+        /*
+        try
+        {
+            Thread.sleep(100);
+        }
+        catch (InterruptedException e)
+        {
+            System.out.println(e.toString());
+        }
+        */
+        //processImageThread.start();
 
 
-        //timer.schedule(new readFrame(),50,10);//执行多次
+        timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
 
     }
@@ -264,10 +318,12 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             }
             //图像切割
             AllEyeMat=matConverter.convertToMat(AllFrame);
+
             Rect reye_box = new Rect(0, 1, AllEyeMat.cols()/2, AllEyeMat.rows() - 1);
             Rect leye_box = new Rect(AllEyeMat.cols()/2, 1, AllEyeMat.cols()/2-1, AllEyeMat.rows() - 1);
             LeftFrameMat=new Mat(AllEyeMat,reye_box);//左眼
             RightFrameMat=new Mat(AllEyeMat,leye_box);//右眼
+
 
             /*图像处理程序*/
             frameNum++;
@@ -344,7 +400,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         {
             this.grabber=grabber;
             this.rate=grabber.getFrameRate();
-            this.delay=(int)(1000/rate);
+            this.delay=(int)(500/rate);
             this.stop=false;
             this.frameNum=0;
         }
@@ -420,7 +476,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             {
                 try
                 {
-                    if(STOP&&frameQueue.size()==0)
+                    if((STOP&&frameQueue.size()==0))
                     {
                         if(!single)
                         {
