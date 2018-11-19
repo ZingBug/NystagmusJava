@@ -1,13 +1,19 @@
 
+import org.bytedeco.javacpp.*;
+import org.bytedeco.javacpp.indexer.UByteIndexer;
+import org.bytedeco.javacv.CanvasFrame;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.OpenCVFrameConverter;
+
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
@@ -20,9 +26,12 @@ public class Main {
     private static final String name="F:\\GitHub\\NystagmusJava\\NystagmusJava\\1.jpg";
     private static final String textName="config.txt";
     public static String fileName="";
+    private static boolean debug=true;
+    private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();
 
     public static void main(String[] args)
     {
+        checkSaveDataPath();
         File courseFile=new File("");
         try
         {
@@ -92,6 +101,15 @@ public class Main {
         }
         return 0;
     }
+
+    private static void checkSaveDataPath()
+    {
+        File file=new File(GlobalValue.saveDataPath);
+        if(!file.exists())
+        {
+            file.mkdirs();
+        }
+    }
 }
 class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>{
     private JLabel label;
@@ -122,9 +140,24 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
         menu.add(onlineItem);
         JMenuItem setItem=new JMenuItem("Set");
         menu.add(setItem);
+        JCheckBoxMenuItem saveItem=new JCheckBoxMenuItem("Sava");
+        menu.add(saveItem);
+        saveItem.setState(false);
         openItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //保存编号
+                if(GlobalValue.isSaveXdata)
+                {
+                    String inputValue=JOptionPane.showInputDialog("请输入当前视频编号");
+                    if(inputValue==null)
+                    {
+                        return;
+                    }
+                    GlobalValue.saveNumber=inputValue;
+                }
+
+                //选择视频路径
                 int result=chooser.showOpenDialog(null);
                 if(result==JFileChooser.APPROVE_OPTION)
                 {
@@ -201,6 +234,13 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                     waveChart.clear();
                 }
                 videoInput.accept(map);
+            }
+        });
+        saveItem.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("是否保存X轴数据: " + saveItem.isSelected());
+                GlobalValue.isSaveXdata=saveItem.isSelected();
             }
         });
     }

@@ -30,8 +30,8 @@ import java.util.function.Consumer;
 public class VideoInput implements Consumer<Map<String,WaveChart>> {
     public static boolean single=false;//是否为单张照片
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();//Mat转Frame
-    public static String dstSaveImageFile="C:\\dst";
-    public static String srcSaveImageFile="C:\\src";
+    public static String dstSaveImageFile;
+    public static String srcSaveImageFile;
 
     public static int frameNum=0;
     public static boolean IsSaveImage=false;//是否选择保存图像
@@ -86,7 +86,8 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     private static double pixel2mm=0.3;
 
     //输出文件
-    private static String saveText="F:/out.txt";
+    private static String saveText;
+    private static FileWriter fw;
 
 
     public VideoInput(String VideoPath,boolean isOnline)
@@ -119,54 +120,24 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             }
         }
 
+        if(GlobalValue.isSaveXdata)
+        {
+            //保存帧数
+            saveText=GlobalValue.saveDataPath+"/"+GlobalValue.saveNumber+".txt";
+            try
+            {
+                fw=new FileWriter(saveText);
+            }
+            catch (IOException e)
+            {
+                System.out.println(e.toString());
+            }
+        }
+
         if((!isOnline)&&VideoPath.contains("jpg"))
         {
             //单张照片
             single=true;
-            /*
-            capture=new FFmpegFrameGrabber(VideoPath);
-            try
-            {
-                capture.start();
-
-            }
-            catch (FrameGrabber.Exception e1)
-            {
-                //播放失败
-                System.out.println("图片加载失败 "+e1.toString());
-                return;
-            }
-            System.out.println("图片加载成功 "+VideoPath);
-            canvas=new CanvasFrame("左眼显示");
-            canvas.setCanvasSize(160,120);
-            //增加关闭监听
-            canvas.addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    super.windowClosing(e);
-                    timer.cancel();
-                }
-            });
-            try
-            {
-                AllFrame=capture.grabFrame();
-                AllEyeMat=matConverter.convertToMat(AllFrame);
-
-                ImgProcess process=new ImgProcess();
-                process.Start(AllEyeMat,1.8);
-                //process.Start(AllEyeMat,1.8);
-                process.ProcessSeparate();
-
-                Leye=process.OutLeye();
-                LeftFrame=matConverter.convert(Leye);//左眼
-                canvas.showImage(LeftFrame);
-            }
-            catch (FrameGrabber.Exception e)
-            {
-                System.out.println("视频播放结束 "+e.toString());
-                timer.cancel();
-            }
-            */
         }
         else
         {
@@ -216,19 +187,6 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         Thread readImageThread=new ReadImageThread(capture);
         Thread processImageThread=new ProcessImageThread(rate);
         STOP=false;
-        //readImageThread.start();
-        /*
-        try
-        {
-            Thread.sleep(100);
-        }
-        catch (InterruptedException e)
-        {
-            System.out.println(e.toString());
-        }
-        */
-        //processImageThread.start();
-
 
         timer.schedule(new readFrame(),50,10);//执行多次
         //timer.schedule(new readFrame(),50);//执行一次
@@ -286,6 +244,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         }
         return pinyinStr;
     }
+
     class readFrame extends TimerTask
     {
         @Override
@@ -303,6 +262,10 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                         calculate.processLeyeX(secondNum);
                         System.out.println("第 "+secondNum+" s : "+calculate.getSecondSPV(secondNum));
                         System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
+                        if(GlobalValue.isSaveXdata)
+                        {
+                            closeText();
+                        }
                     }
                     System.out.println("视频播放结束");
                     timer.cancel();
@@ -312,6 +275,10 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             catch (Exception e)
             {
                 System.out.println("视频播放结束 "+e.toString());
+                if(GlobalValue.isSaveXdata)
+                {
+                    closeText();
+                }
                 timer.cancel();
 
                 return;
@@ -369,6 +336,12 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                     double diffX=box.getX()-preBox.getX();
                     double diffY=box.getY()-preBox.getY();
                     waveChart_rotation.add(frameNum,Math.atan(diffY/diffX));
+
+                    if(GlobalValue.isSaveXdata&&(frameNum>=GlobalValue.saveStartFrameNumber)&&(frameNum<=GlobalValue.saveEndFrameNumber))
+                    {
+                        outText(frameNum+"   "+(box.getX()-LeyeCenter.getX())*pixel2mm);
+                    }
+
                 }
                 preBox=box;
             }
@@ -386,6 +359,31 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         {
             //求两点之间绝对距离
             return Math.sqrt(Math.pow(x.getX()-y.getX(),2)+Math.pow(x.getY()-y.getY(),2));
+        }
+
+        private void outText(String message)
+        {
+            try
+            {
+                fw.write(message+System.getProperty("line.separator"));
+            }
+            catch (IOException e)
+            {
+                System.out.println(e.toString());
+            }
+
+        }
+
+        private void closeText()
+        {
+            try
+            {
+                fw.close();
+            }
+            catch (IOException e)
+            {
+                System.out.println(e.toString());
+            }
         }
     }
 
@@ -459,6 +457,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             this.delay=(int)(1000/rate);
             //canvas=new CanvasFrame("显示");
             this.frameNum=0;
+            /*
             try
             {
                 fw=new FileWriter(saveText);
@@ -467,6 +466,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             {
                 System.out.println(e.toString());
             }
+            */
 
         }
         @Override
@@ -567,7 +567,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                             //waveChart_position.add(frameNum,box.getX());
                             //不做滤波处理
                             waveChart_position.add(frameNum/this.rate,(box.getX()-LeyeCenter.getX())*pixel2mm);
-                            outText(frameNum/this.rate+" "+(box.getX()-LeyeCenter.getX())*pixel2mm);
+                            //outText(frameNum/this.rate+" "+(box.getX()-LeyeCenter.getX())*pixel2mm);
 
                             //旋转角度SPV
                             double diffX=box.getX()-preBox.getX();
