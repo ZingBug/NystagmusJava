@@ -3,7 +3,7 @@
  */
 public class GlobalValue {
 
-    public volatile static boolean isSaveXdata=false;
+    public volatile static boolean isSaveXdata=true;
 
     public volatile static String saveNumber="";
 
