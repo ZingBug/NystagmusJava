@@ -11,7 +11,7 @@ public class GlobalValue {
 
     public static int saveStartFrameNumber=100;
 
-    public static int saveEndFrameNumber=300;
+    public static int saveFrameNumber=200;
 
     private GlobalValue(){}
 }

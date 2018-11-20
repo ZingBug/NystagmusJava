@@ -88,6 +88,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     //输出文件
     private static String saveText;
     private static FileWriter fw;
+    private static int saveFrameNum=0;
 
 
     public VideoInput(String VideoPath,boolean isOnline)
@@ -127,6 +128,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             try
             {
                 fw=new FileWriter(saveText);
+                saveFrameNum=0;
             }
             catch (IOException e)
             {
@@ -337,9 +339,11 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                     double diffY=box.getY()-preBox.getY();
                     waveChart_rotation.add(frameNum,Math.atan(diffY/diffX));
 
-                    if(GlobalValue.isSaveXdata&&(frameNum>=GlobalValue.saveStartFrameNumber)&&(frameNum<=GlobalValue.saveEndFrameNumber))
+                    if(GlobalValue.isSaveXdata&&(frameNum>=GlobalValue.saveStartFrameNumber)&&(saveFrameNum<GlobalValue.saveFrameNumber))
                     {
-                        outText(frameNum+"   "+(box.getX()-LeyeCenter.getX())*pixel2mm);
+                        //outText(frameNum+"   "+(box.getX()-LeyeCenter.getX())*pixel2mm);
+                        outText(""+(box.getX()-LeyeCenter.getX()));
+                        saveFrameNum++;
                     }
 
                 }

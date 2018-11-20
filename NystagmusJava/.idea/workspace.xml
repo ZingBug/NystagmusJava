@@ -13,20 +13,22 @@
     <session id="-402251497">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="823" />
+          <entry key="java" value="889" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="823" />
+          <entry key="JAVA" value="889" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -48,11 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="336" column="51" selection-start-line="336" selection-start-column="51" selection-end-line="336" selection-end-column="51" />
+            <state relative-caret-position="282">
+              <caret line="130" column="31" lean-forward="true" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
               <folding>
                 <element signature="e#5974#6418#0" />
                 <element signature="e#6423#7283#0" />
@@ -60,6 +62,7 @@
                 <element signature="e#11302#11587#0" />
                 <element signature="e#11837#13391#0" />
                 <element signature="e#12071#12320#0" />
+                <element signature="e#13397#20100#0" />
               </folding>
             </state>
           </provider>
@@ -68,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="-3501">
               <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
               <folding>
                 <element signature="method#EntropySeg#0;class#ImgProcess#0" />
@@ -83,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1617">
-              <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+            <state relative-caret-position="279">
+              <caret line="144" column="32" lean-forward="true" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
               <folding>
                 <element signature="method#saveFrame#0;class#Main#0" />
               </folding>
@@ -99,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
-              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -151,9 +154,9 @@
         <option value="$PROJECT_DIR$/src/ProcessQueue.java" />
         <option value="$PROJECT_DIR$/src/WaveChart.java" />
         <option value="$PROJECT_DIR$/src/ImgProcess.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/GlobalValue.java" />
         <option value="$PROJECT_DIR$/src/VideoInput.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -171,10 +174,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="96" />
+    <option name="y" value="136" />
+    <option name="width" value="1452" />
+    <option name="height" value="906" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -242,7 +245,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AlgorithmProblems/AlgorithmProblems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -449,17 +452,20 @@
       <workItem from="1540282986147" duration="5507000" />
       <workItem from="1542458357274" duration="5218000" />
       <workItem from="1542509945527" duration="37000" />
+      <workItem from="1542592596607" duration="2468000" />
+      <workItem from="1542716237105" duration="877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287239000" />
+    <option name="totallyTimeSpent" value="290584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49721915" visible="true" weight="0.18869936" />
-      <window_info id="Structure" order="1" sideWeight="0.50278085" side_tool="true" visible="true" weight="0.18869936" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49506578" visible="true" weight="0.19296375" />
+      <window_info id="Structure" order="1" sideWeight="0.5049342" side_tool="true" visible="true" weight="0.19296375" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -468,7 +474,7 @@
       <window_info content_ui="combo" id="Hierarchy" order="7" sideWeight="0.49944383" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32369298" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32369298" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39822024" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -736,10 +742,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="336" column="51" selection-start-line="336" selection-start-column="51" selection-end-line="336" selection-end-column="51" />
+        <state relative-caret-position="282">
+          <caret line="130" column="31" lean-forward="true" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
           <folding>
             <element signature="e#5974#6418#0" />
             <element signature="e#6423#7283#0" />
@@ -747,13 +760,14 @@
             <element signature="e#11302#11587#0" />
             <element signature="e#11837#13391#0" />
             <element signature="e#12071#12320#0" />
+            <element signature="e#13397#20100#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="-3501">
           <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
           <folding>
             <element signature="method#EntropySeg#0;class#ImgProcess#0" />
@@ -769,18 +783,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1617">
-          <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+        <state relative-caret-position="279">
+          <caret line="144" column="32" lean-forward="true" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
           <folding>
             <element signature="method#saveFrame#0;class#Main#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
         </state>
       </provider>
     </entry>

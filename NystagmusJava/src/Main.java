@@ -142,7 +142,7 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
         menu.add(setItem);
         JCheckBoxMenuItem saveItem=new JCheckBoxMenuItem("Sava");
         menu.add(saveItem);
-        saveItem.setState(false);
+        saveItem.setState(true);
         openItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
