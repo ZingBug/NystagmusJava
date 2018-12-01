@@ -47,7 +47,7 @@ public class ImgProcess {
     {
         leye=CropImage(leye,true);
 
-        opencv_core.flip(leye,leye,1);//水平翻转
+        //opencv_core.flip(leye,leye,1);//水平翻转
 
         Leye=new Mat(leye);
         EyeRatio=eyeratio;

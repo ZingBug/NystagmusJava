@@ -258,23 +258,6 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
         @Override
         public void run()
         {
-            if(GlobalValue.isSaveXdata&&saveFrameNum>=GlobalValue.saveFrameNumber)
-            {
-                secondNum++;
-                calculate.processEyeX(secondNum);
-                calculate.processEyeY(secondNum);
-                double realSPVX=calculate.getRealTimeSPVX(secondNum);
-                double maxSPVX=calculate.getMaxSPVX();
-                double realSPVY=calculate.getRealTimeSPVY(secondNum);
-                double maxSPVY=calculate.getMaxSPVY();
-                System.out.println("第 "+secondNum+" s :  X "+df.format(realSPVX)+" ; Y "+df.format(realSPVY));
-                System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
-                System.out.println("SPV值： X "+df.format(maxSPVX)+" ; Y "+df.format(maxSPVY));
-                outTextSPV(df.format(maxSPVX)+" "+df.format(maxSPVY));
-                closeText();
-                System.out.println("视频播放结束");
-                timer.cancel();
-            }
             AllFrame=new Frame();
             try
             {
@@ -285,18 +268,17 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                     {
                         secondNum++;
                         calculate.processEyeX(secondNum);
-                        calculate.processEyeY(secondNum);
+
                         double realSPVX=calculate.getRealTimeSPVX(secondNum);
                         double maxSPVX=calculate.getMaxSPVX();
-                        double realSPVY=calculate.getRealTimeSPVY(secondNum);
-                        double maxSPVY=calculate.getMaxSPVY();
-                        System.out.println("第 "+secondNum+" s :  X "+df.format(realSPVX)+" ; Y "+df.format(realSPVY));
+
+                        System.out.println("第 "+secondNum+" s : "+df.format(realSPVX));
                         System.out.println("眼震方向为: "+(calculate.judgeFastPhase()?"左向":"右向"));
-                        System.out.println("SPV值： X "+df.format(maxSPVX)+" ; Y "+df.format(maxSPVY));
+                        System.out.println("SPV值: "+df.format(maxSPVX));
 
                         if(GlobalValue.isSaveXdata)
                         {
-                            outTextSPV(df.format(maxSPVX)+" "+df.format(maxSPVY));
+                            outTextSPV(df.format(maxSPVX));
                             closeText();
                         }
                     }
@@ -372,24 +354,20 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                     {
                         //outText(frameNum+"   "+(box.getX()-LeyeCenter.getX())*pixel2mm);
                         outText(""+(box.getX()-LeyeCenter.getX()));
-                        calculate.addEyeX(box.getX()-LeyeCenter.getX());
-                        calculate.addEyeY(box.getY()-LeyeCenter.getY());
                         saveFrameNum++;
                     }
+                    calculate.addEyeX(box.getX()-LeyeCenter.getX());
 
                 }
                 preBox=box;
             }
-            if(!single&&GlobalValue.isSaveXdata&&saveFrameNum>0&&saveFrameNum<GlobalValue.saveFrameNumber&&saveFrameNum%TimerSecondNum==0)
+            if(!single&&GlobalValue.isSaveXdata&&frameNum%TimerSecondNum==0)
             {
                 secondNum++;
                 calculate.processEyeX(secondNum);
-                calculate.processEyeY(secondNum);
                 double realSPVX=calculate.getRealTimeSPVX(secondNum);
                 //double maxSPVX=calculate.getMaxSPVX();
-                double realSPVY=calculate.getRealTimeSPVY(secondNum);
-                //double maxSPVY=calculate.getMaxSPVY();
-                System.out.println("第 "+secondNum+" s :  X "+df.format(realSPVX)+" ; Y "+df.format(realSPVY));
+                System.out.println("第 "+secondNum+" s : "+df.format(realSPVX));
             }
             //后续显示
             LeftFrame=matConverter.convert(Leye);//左眼
