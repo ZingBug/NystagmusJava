@@ -13,9 +13,9 @@ public class GlobalValue {
 
     public static String saveDataPath="./data";
 
-    public static int saveStartFrameNumber=3000;
+    public static int saveStartFrameNumber=1;
 
-    public static int saveFrameNumber=1500;
+    public static int saveFrameNumber=5786;
 
     private GlobalValue(){}
 }

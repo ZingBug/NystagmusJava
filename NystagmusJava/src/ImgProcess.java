@@ -11,6 +11,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
+import static org.bytedeco.javacpp.opencv_core.cvCreateMemStorage;
+import static org.bytedeco.javacpp.opencv_core.cvGetSeqElem;
+
 /**
  * Created by ZingBug on 2017/10/11.
  */
@@ -45,7 +48,7 @@ public class ImgProcess {
      */
     public void Start(Mat leye,double eyeratio)
     {
-        leye=CropImage(leye,true);
+        //leye=CropImage(leye,true);
 
         //opencv_core.flip(leye,leye,1);//水平翻转
 
@@ -401,6 +404,32 @@ public class ImgProcess {
         return box;
     }
     /**
+     * hough圆
+     */
+    private Box houghCircle(Mat src)
+    {
+        IplImage srcImg=new IplImage(src);
+        CvMemStorage storage=cvCreateMemStorage(0);
+        CvSeq circles=opencv_imgproc.cvHoughCircles(srcImg,storage,opencv_imgproc.CV_HOUGH_GRADIENT,0.5,src.rows()/40,100,15,10,30);
+        Pointer pointer1=new Point();
+        //CvSeq circles=opencv_imgproc.cvHoughCircles(srcImg,storage,opencv_imgproc.CV_HOUGH_GRADIENT,10,40);
+        Box box=new Box();
+        for(int i=0;i<circles.total();i++)
+        {
+            FloatPointer pointer=new FloatPointer(cvGetSeqElem(circles,i));
+            float x=pointer.get(0);
+            float y=pointer.get(1);
+            float radius=pointer.get(2);
+            if(radius>box.getR())
+            {
+                box.setX(x);
+                box.setY(y);
+                box.setR(radius);
+            }
+        }
+        return box;
+    }
+    /**
      * 边缘检测
      * @param edgeimg 检测图像
      * @return 边缘图像
@@ -448,7 +477,7 @@ public class ImgProcess {
         opencv_imgproc.cvLine(img,above,below,color,thickness,8,0);
     }
     /**
-     * 图像识别
+     * 图像识别，二乘法拟合圆
      */
     public void ProcessSeparate()
     {
@@ -462,6 +491,8 @@ public class ImgProcess {
         CvSeq cvLcontourKeep=new CvSeq(null);//需要绘制的轮廓
 
         Lgrayimg=GrayDetect(Leye);
+        Box box=houghCircle(Lgrayimg);
+
 
         if(VideoInput.IsSaveImage&&VideoInput.IsSaveImageSingle&&Main.frameHash.contains(VideoInput.frameNum))
         {
@@ -498,6 +529,8 @@ public class ImgProcess {
             }
             if(!cvtempLcontour.isNull())
             {
+
+                //二乘法拟合圆
                 cvLcontourKeep=new CvSeq(cvtempLcontour);
                 Vector<Point> leftPoints=new Vector<Point>();
                 for(int i=0;i<cvtempLcontour.total();++i)
@@ -507,9 +540,10 @@ public class ImgProcess {
                 }
                 //闭眼检测
                 Lrect=opencv_imgproc.cvBoundingRect(cvtempLcontour);
+
+                //二乘法拟合圆
                 if((Lrect.width()/(float)Lrect.height())<EyeRatio&&(Lrect.height()/(float)Lrect.width())<EyeRatio&&Lrect.width()>0&&Lrect.height()>0)
                 {
-                    //Box Lbox=circleLeastFit(leftPoints);//左眼拟合圆检测
                     Box Lbox=CircleFit(Lgrayimg,leftPoints);
                     if(Lbox.getX()!=0&&Lbox.getY()!=0)
                     {
@@ -521,6 +555,7 @@ public class ImgProcess {
                         //Lcircles.add(Lbox);
                     }
                 }
+
             }
         }
         //绘制圆、十字标
@@ -532,8 +567,71 @@ public class ImgProcess {
         //opencv_imgproc.cvDrawContours(LeyeImage,cvLcontourKeep,cvgreen,cvgreen,1);
         Leye=new Mat(LeyeImage);
     }
+
+    public void ProcessSeparate1()
+    {
+        Mat grayimg;
+        Mat edgeimg;
+        double temparea;
+        IplImage matImage;
+        CvMemStorage storage=CvMemStorage.create();
+        CvSeq cvcontour=new CvSeq(null);//检测的整个大轮廓
+        CvSeq cvtempcontour=new CvSeq(null);//临时轮廓
+        CvSeq cvcontourKeep=new CvSeq(null);//需要绘制的轮廓
+
+        grayimg=GrayDetect(Leye);
+
+        if(VideoInput.IsSaveImage&&VideoInput.IsSaveImageSingle&&Main.frameHash.contains(VideoInput.frameNum))
+        {
+            BufferedImage bufferedImageSrc=frameConverter.convert(matConverter.convert(Leye));
+            BufferedImage bufferedImageDst=frameConverter.convert(matConverter.convert(grayimg));
+            try
+            {
+                ImageIO.write(bufferedImageSrc,"bmp",new File(VideoInput.srcSaveImageFile+"\\"+VideoInput.currentVideoNamePinYin+"-"+VideoInput.frameNum+".bmp"));
+                ImageIO.write(bufferedImageDst,"bmp",new File(VideoInput.dstSaveImageFile+"\\"+VideoInput.currentVideoNamePinYin+"-"+VideoInput.frameNum+".bmp"));
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();//在命令行打印异常信息在程序中出错的位置及原因
+            }
+        }
+
+        edgeimg=EdgeDetect(grayimg);
+
+        Box box=houghCircle(edgeimg);
+        //Box box=houghCircle(grayimg);
+        if(box.getX()!=0&&box.getY()!=0&&box.getR()!=0)
+        {
+            Lcircles.add(box);
+        }
+
+        //绘制圆、十字标
+        if(Lcircles.size()>0)
+        {
+            PlotC(Lcircles,LeyeImage);
+        }
+        //绘制轮廓
+        //opencv_imgproc.cvDrawContours(LeyeImage,cvLcontourKeep,cvgreen,cvgreen,1);
+        Leye=new Mat(LeyeImage);
+    }
+
     public Iterable<Box> Lcircles()
     {
         return Lcircles;
     }
+
+    public boolean containCenter()
+    {
+        return !Lcircles.isEmpty();
+    }
+
+    public Box getCenter()
+    {
+        if(!containCenter())
+        {
+            throw new NullPointerException("不存在圆心");
+        }
+        return Lcircles.get(0);
+    }
+
 }

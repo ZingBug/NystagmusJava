@@ -315,24 +315,28 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             process.ProcessSeparate();
 
             Leye=process.OutLeye();
-            for(Box box:process.Lcircles())
+            Box box;
+            if(process.containCenter())
             {
+                box=process.getCenter();
                 //先滤波处理
-                filterX.add(box);
-                box=filterX.get();
+
+                //filterX.add(box);
+                //box=filterX.get();
 
                 //圆心坐标
                 if(preBox==null)
                 {
                     preBox=box;
-                    break;
                 }
-
-                if(distance(box,preBox)>(box.getR()+preBox.getR()/1.5)&&(Math.abs(box.getR()-preBox.getR())>box.getR()/2.0))
-                {
-                    //与上一帧做对比
-                    return;
-                }
+            }
+            else
+            {
+                //闭眼情况
+                box=preBox;
+            }
+            if(box!=null)
+            {
                 if(!IsLeyeCenter&&!single)
                 {
                     IsLeyeCenter=true;
@@ -353,14 +357,14 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                     if(GlobalValue.isSaveXdata&&(frameNum>=GlobalValue.saveStartFrameNumber)&&(saveFrameNum<GlobalValue.saveFrameNumber))
                     {
                         //outText(frameNum+"   "+(box.getX()-LeyeCenter.getX())*pixel2mm);
-                        outText(""+(box.getX()-LeyeCenter.getX()));
+                        outText(""+box.getX());
                         saveFrameNum++;
                     }
                     calculate.addEyeX(box.getX()-LeyeCenter.getX());
-
                 }
                 preBox=box;
             }
+
             if(!single&&GlobalValue.isSaveXdata&&frameNum%TimerSecondNum==0)
             {
                 secondNum++;
