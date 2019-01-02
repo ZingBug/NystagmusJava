@@ -134,6 +134,8 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
         menubar.add(menu);
         JMenuItem openItem = new JMenuItem("Open");
         menu.add(openItem);
+        JMenuItem openFolderItem=new JMenuItem("Open Folder");
+        menu.add(openFolderItem);
         JMenuItem exitItem = new JMenuItem("Close");
         menu.add(exitItem);
         JMenuItem onlineItem=new JMenuItem("Online");
@@ -156,6 +158,7 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                     }
                     GlobalValue.saveNumber=inputValue;
                 }
+                chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);//只选择文件
 
                 //选择视频路径
                 int result=chooser.showOpenDialog(null);
@@ -169,6 +172,20 @@ class ImageViewerFrame extends JFrame implements Consumer<Map<String,WaveChart>>
                         waveChart.clear();
                     }
                     videoInput.accept(map);
+                }
+            }
+        });
+        openFolderItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);//只选择文件夹
+                int result=chooser.showOpenDialog(null);
+                if(result==JFileChooser.APPROVE_OPTION)
+                {
+                    //读取到的文件路径
+                    String dirPath=chooser.getSelectedFile().getPath();
+                    System.out.println("打开文件夹为： "+dirPath);
+                    VideosInput input=new VideosInput(dirPath);
                 }
             }
         });
