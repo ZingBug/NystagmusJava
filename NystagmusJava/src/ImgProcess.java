@@ -347,7 +347,7 @@ public class ImgProcess {
             center.setR(fitCenter.getR());
         }
 
-        center.setX(src.cols()-center.getX());//翻转x轴
+        //center.setX(src.cols()-center.getX());//翻转x轴
 
         return center;
     }

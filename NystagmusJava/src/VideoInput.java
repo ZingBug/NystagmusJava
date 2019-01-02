@@ -319,6 +319,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
             if(process.containCenter())
             {
                 box=process.getCenter();
+                box.setX(LeftFrameMat.cols()-box.getX());//翻转x轴
                 //先滤波处理
 
                 //filterX.add(box);
@@ -365,13 +366,14 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                 preBox=box;
             }
 
-            if(!single&&GlobalValue.isSaveXdata&&frameNum%TimerSecondNum==0)
+            if(!single&&frameNum%TimerSecondNum==0)
             {
                 secondNum++;
                 calculate.processEyeX(secondNum);
                 double realSPVX=calculate.getRealTimeSPVX(secondNum);
-                //double maxSPVX=calculate.getMaxSPVX();
-                System.out.println("第 "+secondNum+" s : "+df.format(realSPVX));
+                double maxSPVX=calculate.getMaxSPVX();
+                System.out.print("第 "+secondNum+" s : "+df.format(realSPVX));
+                System.out.println("  of "+df.format(maxSPVX));
             }
             //后续显示
             LeftFrame=matConverter.convert(Leye);//左眼

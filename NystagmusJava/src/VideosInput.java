@@ -191,6 +191,7 @@ public class VideosInput {
             if(process.containCenter())
             {
                 box=process.getCenter();
+                box.setX(LeftFrameMat.cols()-box.getX());//翻转x轴
 
                 //圆心坐标
                 if(preBox==null)
