@@ -346,6 +346,9 @@ public class ImgProcess {
             Box fitCenter=circleLeastFit(points);
             center.setR(fitCenter.getR());
         }
+
+        center.setX(src.cols()-center.getX());//翻转x轴
+
         return center;
     }
     /**
