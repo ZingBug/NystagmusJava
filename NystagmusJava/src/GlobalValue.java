@@ -7,15 +7,15 @@ public class GlobalValue {
     public static final double SPVMaxValue=0.5f;//SPV最大临界值，超过这个值即眼震眩晕异常
 
 
-    public volatile static boolean isSaveXdata=true;
+    public volatile static boolean isSaveXdata=false;
 
     public volatile static String saveNumber="";
 
     public static String saveDataPath="./data";
 
-    public static int saveStartFrameNumber=1;
+    public static int saveStartFrameNumber=3400;
 
-    public static int saveFrameNumber=5786;
+    public static int saveFrameNumber=1000;
 
     private GlobalValue(){}
 }

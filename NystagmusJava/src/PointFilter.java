@@ -22,7 +22,7 @@ public class PointFilter {
     }
     public PointFilter()
     {
-        this(5);
+        this(12);
     }
     public void add(Box point)
     {

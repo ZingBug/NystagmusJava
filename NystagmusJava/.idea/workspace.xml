@@ -13,40 +13,41 @@
     <session id="-402251497">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="6" />
+          <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3316" />
+          <entry key="java" value="5175" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3316" />
+          <entry key="JAVA" value="5175" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ProcessImageThread" value="1" />
           <entry key="class" value="3" />
-          <entry key="java" value="5" />
+          <entry key="java" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="10" />
           <entry key="UML" value="1" />
         </counts>
       </usages-collector>
@@ -60,48 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="375" column="37" selection-start-line="375" selection-start-column="37" selection-end-line="375" selection-end-column="37" />
-              <folding>
-                <element signature="e#6197#6392#0" />
-                <element signature="e#6397#6841#0" />
-                <element signature="e#6846#7706#0" />
-                <element signature="e#13058#14612#0" />
-                <element signature="e#14618#21331#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="349" column="54" lean-forward="true" selection-start-line="349" selection-start-column="10" selection-end-line="349" selection-end-column="54" />
-              <folding>
-                <element signature="docComment;method#Start#0;class#ImgProcess#0" />
-                <element signature="method#Start#0;class#ImgProcess#0" />
-                <element signature="method#CropImage#0;class#ImgProcess#0" />
-                <element signature="method#Binary#0;class#ImgProcess#0" />
-                <element signature="method#EntropySeg#0;class#ImgProcess#0" />
-                <element signature="method#RemoveSmallRegion#0;class#ImgProcess#0" />
-                <element signature="docComment;method#GravityCenter#0;class#ImgProcess#0" />
-                <element signature="method#GravityCenter#0;class#ImgProcess#0" />
-                <element signature="docComment;method#circleLeastFit#0;class#ImgProcess#0" />
-                <element signature="method#circleLeastFit#0;class#ImgProcess#0" />
-                <element signature="method#EdgeDetect#0;class#ImgProcess#0" />
-                <element signature="method#PlotC#0;class#ImgProcess#0" />
-                <element signature="method#ProcessSeparate1#0;class#ImgProcess#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Box.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="189">
+              <caret line="350" column="30" selection-start-line="350" selection-start-column="30" selection-end-line="350" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -109,18 +70,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Calculate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="112" column="33" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
+            <state relative-caret-position="336">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding>
-                <element signature="method#Calculate#0;class#Calculate#0" />
                 <element signature="docComment;method#addEyeX#0;class#Calculate#0" />
-                <element signature="docComment;method#addEyeY#0;class#Calculate#0" />
-                <element signature="docComment;method#processEyeY#0;class#Calculate#0" />
-                <element signature="docComment;method#processEyePoints#0;class#Calculate#0" />
-                <element signature="docComment;method#getSlope#0;class#Calculate#0" />
-                <element signature="method#getMaxSPVX#0;class#Calculate#0" />
-                <element signature="method#getMaxSPVY#0;class#Calculate#0" />
-                <element signature="method#judgeFastPhase#0;class#Calculate#0" />
+                <element signature="method#getMiniSlope#0;class#Calculate#0" />
+                <element signature="docComment;method#getMaxSlope#0;class#Calculate#0" />
+                <element signature="method#getMaxSlope#0;class#Calculate#0" />
               </folding>
             </state>
           </provider>
@@ -129,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2652">
-              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+            <state relative-caret-position="4536">
+              <caret line="259" column="33" selection-start-line="259" selection-start-column="33" selection-end-line="259" selection-end-column="33" />
               <folding>
                 <element signature="method#saveFrame#0;class#Main#0" />
               </folding>
@@ -139,23 +95,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/VideosInput.java">
+        <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1182">
-              <caret line="193" column="63" selection-start-line="193" selection-start-column="63" selection-end-line="193" selection-end-column="63" />
+            <state relative-caret-position="1302">
+              <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getAllVideo#0;class#VideosInput#0" />
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://E:/Java/JDK/jdk1.8.0_162/src.zip!/java/lang/Object.java">
+        <entry file="file://$PROJECT_DIR$/src/VideosInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="505" column="69" selection-start-line="505" selection-start-column="69" selection-end-line="505" selection-end-column="69" />
+            <state relative-caret-position="2541">
+              <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getAllVideo#0;class#VideosInput#0" />
+                <element signature="class#readFrame#0;class#VideosInput#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="315">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -205,24 +166,25 @@
       <find>左眼显示</find>
       <find>frameNum</find>
       <find>outTextSPV</find>
+      <find>eyeSecondSPV</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Box.java" />
-        <option value="$PROJECT_DIR$/src/PointFilter.java" />
         <option value="$PROJECT_DIR$/src/ChartBasePanel.java" />
         <option value="$PROJECT_DIR$/src/ReadImageThread.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/SocketVideo.java" />
         <option value="$PROJECT_DIR$/src/ProcessQueue.java" />
         <option value="$PROJECT_DIR$/src/WaveChart.java" />
-        <option value="$PROJECT_DIR$/src/Calculate.java" />
-        <option value="$PROJECT_DIR$/src/GlobalValue.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ImgProcess.java" />
         <option value="$PROJECT_DIR$/src/VideosInput.java" />
+        <option value="$PROJECT_DIR$/src/PointFilter.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Box.java" />
+        <option value="$PROJECT_DIR$/src/GlobalValue.java" />
+        <option value="$PROJECT_DIR$/src/Calculate.java" />
         <option value="$PROJECT_DIR$/src/VideoInput.java" />
       </list>
     </option>
@@ -241,10 +203,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="71" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1089" />
-    <option name="height" value="722" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -268,6 +230,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,16 +238,10 @@
               <item name="NystagmusJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="NystagmusJava" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="NystagmusJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NystagmusJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -527,19 +484,21 @@
       <workItem from="1545811766430" duration="1127000" />
       <workItem from="1545959949607" duration="53000" />
       <workItem from="1545984946413" duration="7324000" />
-      <workItem from="1546394302370" duration="5796000" />
+      <workItem from="1546394302370" duration="16119000" />
+      <workItem from="1546564169624" duration="14214000" />
+      <workItem from="1546783303931" duration="655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324110000" />
+    <option name="totallyTimeSpent" value="349302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48053893" visible="true" weight="0.22121535" />
-      <window_info id="Structure" order="1" sideWeight="0.5194611" side_tool="true" visible="true" weight="0.22121535" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47719687" visible="true" weight="0.22547974" />
+      <window_info id="Structure" order="1" sideWeight="0.5228031" side_tool="true" visible="true" weight="0.22547974" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -547,9 +506,9 @@
       <window_info id="Favorites" order="6" sideWeight="0.5005562" side_tool="true" weight="0.18656716" />
       <window_info content_ui="combo" id="Hierarchy" order="7" sideWeight="0.49944383" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25695217" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.33481646" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31813127" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36262515" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -558,6 +517,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32900432" />
+      <window_info anchor="right" id="Redis Servers" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -583,11 +543,29 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="src.cols()" language="JAVA" />
+        <watch expression="eyeSecondX" language="JAVA" />
+        <watch expression="list.get(i)" language="JAVA" />
+        <watch expression="Math.abs(slope.doubleValue()) * 50" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>Math.abs(slope.doubleValue()) * 50</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>list.get(i)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>eyeSecondX</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>src.cols()</expression-string>
         <language-id>JAVA</language-id>
@@ -620,21 +598,6 @@
       </expression>
       <expression>
         <expression-string>pointer.get(2)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>pointer.get(1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>pointer.get(0)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(bytes[position]-pixMin[0])*255/(pixMax[0]-pixMin[0])</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -787,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/VideoInput.ProcessImageThread">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -836,59 +792,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Java/JDK/jdk1.8.0_162/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
-          <caret line="505" column="69" selection-start-line="505" selection-start-column="69" selection-end-line="505" selection-end-column="69" />
+          <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
+    <entry file="jar://E:/Java/JDK/jdk1.8.0_162/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="112" column="33" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
-          <folding>
-            <element signature="method#Calculate#0;class#Calculate#0" />
-            <element signature="docComment;method#addEyeX#0;class#Calculate#0" />
-            <element signature="docComment;method#addEyeY#0;class#Calculate#0" />
-            <element signature="docComment;method#processEyeY#0;class#Calculate#0" />
-            <element signature="docComment;method#processEyePoints#0;class#Calculate#0" />
-            <element signature="docComment;method#getSlope#0;class#Calculate#0" />
-            <element signature="method#getMaxSPVX#0;class#Calculate#0" />
-            <element signature="method#getMaxSPVY#0;class#Calculate#0" />
-            <element signature="method#judgeFastPhase#0;class#Calculate#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2652">
-          <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
-          <folding>
-            <element signature="method#saveFrame#0;class#Main#0" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="1004" column="31" selection-start-line="1004" selection-start-column="31" selection-end-line="1004" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImgProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="349" column="54" lean-forward="true" selection-start-line="349" selection-start-column="10" selection-end-line="349" selection-end-column="54" />
+        <state relative-caret-position="415">
+          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
           <folding>
             <element signature="docComment;method#Start#0;class#ImgProcess#0" />
             <element signature="method#Start#0;class#ImgProcess#0" />
@@ -907,28 +828,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/VideosInput.java">
+    <entry file="file://$PROJECT_DIR$/src/Box.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1182">
-          <caret line="193" column="63" selection-start-line="193" selection-start-column="63" selection-end-line="193" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllVideo#0;class#VideosInput#0" />
-          </folding>
+        <state relative-caret-position="-343">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VideoInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="375" column="37" selection-start-line="375" selection-start-column="37" selection-end-line="375" selection-end-column="37" />
+        <state relative-caret-position="189">
+          <caret line="350" column="30" selection-start-line="350" selection-start-column="30" selection-end-line="350" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding>
-            <element signature="e#6197#6392#0" />
-            <element signature="e#6397#6841#0" />
-            <element signature="e#6846#7706#0" />
-            <element signature="e#13058#14612#0" />
-            <element signature="e#14618#21331#0" />
+            <element signature="docComment;method#addEyeX#0;class#Calculate#0" />
+            <element signature="method#getMiniSlope#0;class#Calculate#0" />
+            <element signature="docComment;method#getMaxSlope#0;class#Calculate#0" />
+            <element signature="method#getMaxSlope#0;class#Calculate#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4536">
+          <caret line="259" column="33" selection-start-line="259" selection-start-column="33" selection-end-line="259" selection-end-column="33" />
+          <folding>
+            <element signature="method#saveFrame#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PointFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+          <folding>
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VideosInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2541">
+          <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAllVideo#0;class#VideosInput#0" />
+            <element signature="class#readFrame#0;class#VideosInput#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GlobalValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -989,7 +952,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
