@@ -80,7 +80,7 @@ public class VideosInput {
             {
                 //播放失败
                 System.out.println("视频加载失败 "+e1.toString());
-                return;
+                continue;
             }
             System.out.println("视频加载成功 "+path);
 

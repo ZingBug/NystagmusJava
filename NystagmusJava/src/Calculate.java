@@ -2,6 +2,8 @@ import org.apache.commons.math3.fitting.PolynomialCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
 import org.bytedeco.javacpp.opencv_videostab;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -11,12 +13,14 @@ import java.util.*;
  */
 public class Calculate {
 
-    private final int SLOPE_POINT_NUM=8;
-    private final int NOISE_POINT_NUM=3;
+    private final int SLOPE_POINT_NUM=15;
+    private final int NOISE_POINT_NUM=30;
 
     private LinkedList<Double> eyeX;//左眼x轴坐标集合,链表易于频繁数据操作
 
     private Hashtable<Integer, Double> eyeSecondX;//用哈希表来存储左眼每秒的平均SPV
+
+    private FileWriter fw;
 
 
     /**
@@ -26,6 +30,16 @@ public class Calculate {
         this.eyeX = new LinkedList<Double>();//初始化左眼X轴坐标容器
 
         this.eyeSecondX = new Hashtable<Integer, Double>();//哈希表初始化
+
+        try
+        {
+            fw=new FileWriter(GlobalValue.saveDataPath+"/spv.txt");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -70,8 +84,16 @@ public class Calculate {
                 i = min;
 
                 if (points.size() > SLOPE_POINT_NUM) {
-                    System.out.println(points.size());
+                    System.out.print(points.size()+"      ");
+                    Iterator iter = points.entrySet().iterator();
+
+                    if (iter.hasNext()) {
+                        Map.Entry element = (Map.Entry) iter.next();
+                        int key = (int) element.getKey();
+                        System.out.print((key/50+60)+"秒     ");
+                    }
                     double slope = getSlope(points);
+                    System.out.println(slope);
                     slowSlope.add(slope);
                 }
 
@@ -87,7 +109,7 @@ public class Calculate {
             for (double tempSPV : slowSlope) {
                 sumSPV += tempSPV;
             }
-            eyeSecondX.put(second, sumSPV / slowSlope.size());//存入每秒的平均SPV
+            eyeSecondX.put(second, sumSPV / slowSlope.size());//存入平均SPV
         } else {
             //队列为空时
             eyeSecondX.put(second, sumSPV);//存入每秒的平均SPV
@@ -119,6 +141,8 @@ public class Calculate {
                 }
                 i = n + 1;
             }
+            cur=list.get(i);
+            outText(i+"  "+cur);
             pre = cur;
         }
         return index;
@@ -131,7 +155,6 @@ public class Calculate {
         double cur;
         for (int i = index + 1; i + 1 < len; i++) {
             cur = list.get(i);
-
             if (cur < pre && cur < list.get(i + 1)) {
                 //去除噪声
                 int n = judgeNoise(list, cur, i, true);
@@ -140,6 +163,8 @@ public class Calculate {
                 }
                 i = n + 1;
             }
+            cur=list.get(i);
+            outText(i+"  "+cur);
             points.put(i, cur);
             pre = cur;
         }
@@ -179,6 +204,35 @@ public class Calculate {
             return eyeSecondX.get(second);
         }
         return 0;
+    }
+
+
+    private void outText(String message)
+    {
+
+        try
+        {
+            fw.write(message+System.getProperty("line.separator"));
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.toString());
+        }
+
+    }
+
+    public void closeText()
+    {
+
+        try
+        {
+            fw.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.toString());
+        }
+
     }
 
 
