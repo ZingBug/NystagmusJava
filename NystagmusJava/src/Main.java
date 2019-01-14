@@ -29,6 +29,7 @@ public class Main {
     private static boolean debug=true;
     private static OpenCVFrameConverter.ToIplImage matConverter = new OpenCVFrameConverter.ToIplImage();
 
+
     public static void main(String[] args)
     {
         checkSaveDataPath();

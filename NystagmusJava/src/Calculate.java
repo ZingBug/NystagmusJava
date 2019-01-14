@@ -13,15 +13,14 @@ import java.util.*;
  */
 public class Calculate {
 
-    private final int SLOPE_POINT_NUM=15;
-    private final int NOISE_POINT_NUM=30;
+    private final int SLOPE_POINT_NUM=20;
+    private final int NOISE_POINT_NUM=40;
 
     private LinkedList<Double> eyeX;//左眼x轴坐标集合,链表易于频繁数据操作
 
     private Hashtable<Integer, Double> eyeSecondX;//用哈希表来存储左眼每秒的平均SPV
 
     private FileWriter fw;
-
 
     /**
      * 构造函数
@@ -39,8 +38,6 @@ public class Calculate {
         {
             e.printStackTrace();
         }
-
-
     }
 
     /**
@@ -51,7 +48,6 @@ public class Calculate {
     public void addEyeX(double x) {
         this.eyeX.add(x);
     }
-
 
     /**
      * 处理眼睛X轴坐标并保存秒的平均SPV,上锁
@@ -69,7 +65,7 @@ public class Calculate {
         int min = 0;
 
         int len = eyeX.size();
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len;i++) {
             double x = eyeX.get(i);
 
             if (!findMin) {
@@ -82,19 +78,32 @@ public class Calculate {
                 //找局部最小极值点
                 min = findMin(eyeX, i, points);
                 i = min;
-
-                if (points.size() > SLOPE_POINT_NUM) {
-                    System.out.print(points.size()+"      ");
+                if (i<len) {
                     Iterator iter = points.entrySet().iterator();
-
-                    if (iter.hasNext()) {
+                    int minIndex=Integer.MAX_VALUE;
+                    int maxIndex=Integer.MIN_VALUE;
+                    while (iter.hasNext()) {
                         Map.Entry element = (Map.Entry) iter.next();
                         int key = (int) element.getKey();
-                        System.out.print((key/50+60)+"秒     ");
+                        if(key<minIndex)
+                        {
+                            minIndex=key;
+                        }
+                        if(key>maxIndex)
+                        {
+                            maxIndex=key;
+                        }
                     }
-                    double slope = getSlope(points);
-                    System.out.println(slope);
-                    slowSlope.add(slope);
+                    if(maxIndex-minIndex>SLOPE_POINT_NUM)
+                    {
+                        System.out.print("帧位置："+minIndex+" - "  +maxIndex+"\t");
+                        System.out.print("帧数目:"+(maxIndex-minIndex)+"\t");
+                        //double slope = getSlope(points);
+                        double slope=getSlope(points,minIndex,maxIndex);
+                        System.out.println("斜率大小:"+slope);
+                        slowSlope.add(slope);
+                    }
+
                 }
 
                 points.clear();//点清零，开始寻找局部最大极值点
@@ -131,44 +140,49 @@ public class Calculate {
         int len = list.size();
         double pre = list.get(index);
         double cur;
+
         for (int i = index + 1; i + 1 < len; i++) {
             cur = list.get(i);
-            if (cur > pre && cur > list.get(i + 1)) {
+            if (cur < pre ) {
                 //去除噪声
                 int n = judgeNoise(list, cur, i, false);
                 if (n == -1) {
+                    outText(i+"  "+cur);
                     return i;
                 }
-                i = n + 1;
+                i = n+1;
             }
             cur=list.get(i);
             outText(i+"  "+cur);
             pre = cur;
         }
-        return index;
+        return len;
     }
 
     private int findMin(LinkedList<Double> list, int index, HashMap<Integer, Double> points) {
         points.clear();
         int len = list.size();
         double pre = list.get(index);
+        points.put(index,pre);
         double cur;
         for (int i = index + 1; i + 1 < len; i++) {
             cur = list.get(i);
-            if (cur < pre && cur < list.get(i + 1)) {
+            if (cur > pre ) {
                 //去除噪声
                 int n = judgeNoise(list, cur, i, true);
                 if (n == -1) {
+                    outText(i+"  "+cur);
+                    points.put(i, cur);
                     return i;
                 }
-                i = n + 1;
+                i = n+1;
             }
             cur=list.get(i);
             outText(i+"  "+cur);
             points.put(i, cur);
             pre = cur;
         }
-        return index;
+        return len;
     }
 
     /**
@@ -196,6 +210,13 @@ public class Calculate {
         BigDecimal bd = new BigDecimal(coeff[1]);
         BigDecimal slope = bd.setScale(3, BigDecimal.ROUND_HALF_UP);
         return Math.abs(slope.doubleValue()) * 50;
+    }
+
+    private double getSlope(HashMap<Integer,Double> points,int minIndex,int maxIndex)
+    {
+        double min=points.get(minIndex);
+        double max=points.get(maxIndex);
+        return Math.abs((max-min)/(maxIndex-minIndex))*50;
     }
 
 

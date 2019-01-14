@@ -39,9 +39,7 @@ public class VideosInput {
     private static FileWriter fwX;
     private static FileWriter fwY;
 
-    private Object object=new Object();
-
-    private boolean stop=true;
+    private volatile boolean stop=true;
 
 
     public VideosInput(String dirPath)

@@ -75,7 +75,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
     private BlockingDeque<Frame> frameQueue=new LinkedBlockingDeque<>(queueSize);
 
     //信号量
-    private static boolean STOP=false;
+    private volatile static boolean STOP=false;
 
     //是否为在线视频
     private boolean isOnline=false;
@@ -308,8 +308,8 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                 box.setX(LeftFrameMat.cols()-box.getX());//翻转x轴
                 //先滤波处理
 
-                filterX.add(box);
-                box=filterX.get();
+                //filterX.add(box);
+                //box=filterX.get();
 
                 //圆心坐标
                 if(preBox==null)
