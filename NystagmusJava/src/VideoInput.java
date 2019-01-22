@@ -348,7 +348,7 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                         saveFrameNum++;
                     }
                     //calculate.addEyeX(box.getX());
-                    if((frameNum/TimerSecondNum>=60)&&(frameNum/TimerSecondNum<=90))
+                    if((frameNum/TimerSecondNum>=60)&&(frameNum/TimerSecondNum<90))
                     {
                         calculate.addEyeX(box.getX());
                     }
@@ -362,6 +362,11 @@ public class VideoInput implements Consumer<Map<String,WaveChart>> {
                 calculate.processEyeX(secondNum);
                 double realSPVX=calculate.getSPV(secondNum);
                 calculate.closeText();
+                if(GlobalValue.isSaveXdata)
+                {
+                    closeText();
+                }
+
                 System.out.println("第 "+secondNum*10+" s : "+df.format(realSPVX));
                 timer.cancel();
             }
